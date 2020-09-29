@@ -1,7 +1,121 @@
-//@import "node_modules/bootstrap/scss/bootstrap-reboot.scss";
+@mixin font($fname, $fstyle, $fweight, $furl) {
+    @font-face {
+        font-family: $fname;
+        font-style: $fstyle;
+        font-weight: $fweight;
+        // font-display: swap; // Uncomment to initially display system fonts
+        src: local($fname), url($furl) format("woff");
+    }
+}
+
+@include font("Georgia", normal, 400, "../../assets/fonts/Georgia.woff");
+@include font("Arial", normal, 400, "../../assets/fonts/Arial.woff");
+
+body {
+    font-family: Arial;
+    font-size: 13px;
+    ul {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding-inline-start: 0;
+    }
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
 
 header {
+    padding-top: 60px;
+}
+
+.start_screen {
     height: 908px;
-    background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%),
+    background: url(../../assets/images/bg.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%),
         #211f20;
+    .top_menu {
+        display: flex;
+        justify-content: space-between;
+        .logo_wrap {
+            a {
+                font-family: Georgia;
+                font-size: 32px;
+                line-height: 110%;
+                letter-spacing: 0.06em;
+                color: #f1cdb3;
+                text-decoration: none;
+            }
+            p {
+                line-height: 15px;
+                letter-spacing: 0.1em;
+                color: #ffffff;
+                margin-top: 10px;
+            }
+        }
+        .menu {
+            line-height: 74px;
+            ul {
+                display: flex;
+                flex-direction: row;
+                list-style-type: none;
+                li {
+                    padding-right: 35px;
+                    a {
+                        font-size: 15px;
+                        line-height: 160%;
+                        color: #dcdcdc;
+                        text-decoration: none;
+                        &:hover {
+                            color: #fafafa;
+                        }
+                    }
+                    &:last-child {
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .dog_image {
+        position: absolute;
+        top: 180px;
+        margin-left: 470px;
+    }
+    .header_content {
+        margin-top: 223px;
+        h2 {
+            font-family: Georgia;
+            font-size: 44px;
+            font-weight: normal;
+            line-height: 130%;
+            color: #ffffff;
+            max-width: 355px;
+        }
+        p {
+            font-size: 15px;
+            line-height: 160%;
+            margin-top: 42px;
+            color: #cdcdcd;
+            max-width: 460px;
+        }
+        .btn {
+            margin-top: 41px;
+        }
+    }
+}
+.btn {
+    font-family: Georgia;
+    font-size: 17px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    color: #292929;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 207px;
+    height: 52px;
+    background: #f1cdb3;
+    border-radius: 100px;
 }

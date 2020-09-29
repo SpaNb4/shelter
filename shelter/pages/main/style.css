@@ -1,5 +1,118 @@
-header {
-  height: 908px;
-  background: url(noise_lines_transparent@2X.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20; }
+@font-face {
+  font-family: "Georgia";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Georgia"), url("../../assets/fonts/Georgia.woff") format("woff");
+}
+@font-face {
+  font-family: "Arial";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial"), url("../../assets/fonts/Arial.woff") format("woff");
+}
+body {
+  font-family: Arial;
+  font-size: 13px;
+}
+body ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
 
-/*# sourceMappingURL=style.css.map */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+header {
+  padding-top: 60px;
+}
+
+.start_screen {
+  height: 908px;
+  background: url(../../assets/images/bg.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+}
+.start_screen .top_menu {
+  display: flex;
+  justify-content: space-between;
+}
+.start_screen .top_menu .logo_wrap a {
+  font-family: Georgia;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0.06em;
+  color: #f1cdb3;
+  text-decoration: none;
+}
+.start_screen .top_menu .logo_wrap p {
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  margin-top: 10px;
+}
+.start_screen .top_menu .menu {
+  line-height: 74px;
+}
+.start_screen .top_menu .menu ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.start_screen .top_menu .menu ul li {
+  padding-right: 35px;
+}
+.start_screen .top_menu .menu ul li a {
+  font-size: 15px;
+  line-height: 160%;
+  color: #dcdcdc;
+  text-decoration: none;
+}
+.start_screen .top_menu .menu ul li a:hover {
+  color: #fafafa;
+}
+.start_screen .top_menu .menu ul li:last-child {
+  padding-right: 0;
+}
+.start_screen .dog_image {
+  position: absolute;
+  top: 180px;
+  margin-left: 470px;
+}
+.start_screen .header_content {
+  margin-top: 223px;
+}
+.start_screen .header_content h2 {
+  font-family: Georgia;
+  font-size: 44px;
+  font-weight: normal;
+  line-height: 130%;
+  color: #ffffff;
+  max-width: 355px;
+}
+.start_screen .header_content p {
+  font-size: 15px;
+  line-height: 160%;
+  margin-top: 42px;
+  color: #cdcdcd;
+  max-width: 460px;
+}
+.start_screen .header_content .btn {
+  margin-top: 41px;
+}
+
+.btn {
+  font-family: Georgia;
+  font-size: 17px;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #292929;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 207px;
+  height: 52px;
+  background: #f1cdb3;
+  border-radius: 100px;
+}
