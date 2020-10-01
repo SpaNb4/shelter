@@ -314,3 +314,87 @@ body {
         }
     }
 }
+
+.help {
+    .wrapper {
+        padding: 8rem 0 10rem 0;
+        .help_content {
+            width: 100%;
+            .help_title {
+                @include h3;
+                color: $color-dark-l;
+                text-align: center;
+                margin: 0 auto;
+            }
+            .help_items {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 6rem;
+                .help_item {
+                    width: 20%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    &:first-child {
+                        margin-bottom: 5.5rem;
+                    }
+                    .help_names {
+                        @include h4;
+                        color: $color-dark-l;
+                        margin-top: 3rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.donation {
+    background: $color-light-l;
+    .wrapper {
+        justify-content: space-between;
+        padding: 8rem 14rem 10rem 14rem;
+        .donation_image_wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .donation_content {
+            max-width: 43rem;
+            .donation_title {
+                @include h3;
+                color: $color-dark-l;
+                max-width: 30rem;
+                margin-bottom: 2rem;
+                margin-top: 0;
+            }
+            .donation_description {
+                h5 {
+                    @include h5;
+                    margin-bottom: 2rem;
+                }
+                h4 {
+                    @include h4;
+                }
+                p {
+                    @include paragraph-s;
+                    margin-top: 2.5rem;
+                    max-width: 38rem;
+                    color: $color-dark-m;
+                }
+                .credit_card {
+                    background: #f1cdb3;
+                    display: flex;
+                    max-width: 35rem;
+                    padding: 1rem 1.5rem 1rem 1.5rem;
+                    margin-bottom: 0;
+                    border-radius: 9px;
+                    margin-top: 0;
+                    img {
+                        margin-right: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
