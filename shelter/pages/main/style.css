@@ -11,6 +11,43 @@
   font-size: 10px;
 }
 
+.btn-primary {
+  font-family: Georgia;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #292929;
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.3rem 4.3rem;
+  background: #f1cdb3;
+  border-radius: 10rem;
+  border: 2px solid #f1cdb3;
+}
+.btn-primary:hover {
+  background: #fddcc4;
+  border-color: #fddcc4;
+}
+
+.btn-secondary {
+  font-family: Georgia;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: 0.06em;
+  color: #292929;
+  display: inline-block;
+  text-decoration: none;
+  padding: 1.3rem 4.3rem;
+  background: #f1cdb3;
+  border-radius: 10rem;
+  border: 2px solid #f1cdb3;
+  background: none;
+}
+.btn-secondary:hover {
+  background: #fddcc4;
+  border-color: #fddcc4;
+}
+
 @font-face {
   font-family: "Georgia";
   font-style: normal;
@@ -90,7 +127,7 @@ body {
 }
 .start_screen .wrapper .top_menu ul li a.active {
   border-bottom: 0.3rem solid #f1cdb3;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
 }
 .start_screen .wrapper .top_menu ul li:last-child {
   padding-right: 0;
@@ -123,27 +160,13 @@ body {
   color: #cdcdcd;
   max-width: 46rem;
 }
-.start_screen .wrapper .header_content .btn {
+.start_screen .wrapper .header_content .btn-primary {
   margin-top: 4.2rem;
-}
-
-.btn {
-  font-family: Georgia;
-  font-size: 1.7rem;
-  line-height: 130%;
-  letter-spacing: 0.06em;
-  color: #292929;
-  display: inline-block;
-  text-decoration: none;
-  padding: 1.3rem 4.3rem;
-  background: #f1cdb3;
-  border-radius: 10rem;
-  border: 2px solid #f1cdb3;
 }
 
 .about .wrapper {
   justify-content: space-between;
-  padding: 8rem 17.5rem 9.34rem 17.5rem;
+  padding: 8rem 17.5rem 10rem 17.5rem;
 }
 .about .wrapper .about_content {
   max-width: 43rem;
@@ -167,6 +190,7 @@ body {
   font-weight: normal;
   line-height: 160%;
   margin-top: 2.5rem;
+  margin-bottom: 0;
   color: #4c4c4c;
 }
 
@@ -197,12 +221,20 @@ body {
   margin-top: 6rem;
 }
 .pets .wrapper .pets_content .pets_carousel .slider_button {
+  display: flex;
+  align-items: center;
   border: 2px solid #f1cdb3;
-  border-radius: 100%;
+  border-radius: 50%;
   padding: 1.7rem;
+  width: 52px;
+  height: 52px;
   background: none;
 }
-.pets .wrapper .pets_content .pets_carousel .slider_button.reverted {
+.pets .wrapper .pets_content .pets_carousel .slider_button:hover {
+  background: #fddcc4;
+  border-color: #fddcc4;
+}
+.pets .wrapper .pets_content .pets_carousel .slider_button.reversed {
   transform: rotate(180deg);
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items {
@@ -215,6 +247,11 @@ body {
   display: flex;
   flex-direction: column;
   background: #fafafa;
+  border-radius: 9px;
+}
+.pets .wrapper .pets_content .pets_carousel .pets_items .pets_item:hover {
+  background: #ffffff;
+  cursor: pointer;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_names {
   font-family: Georgia;
@@ -228,10 +265,9 @@ body {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
-.pets .wrapper .pets_content .pets_carousel .pets_items .btn {
+.pets .wrapper .pets_content .pets_carousel .pets_items .btn-secondary {
   margin: 0 auto;
   margin-bottom: 3rem;
-  background: none;
 }
 .pets .wrapper .pets_content .pets_button_wrapper {
   text-align: center;
@@ -286,10 +322,8 @@ body {
 }
 .donation .wrapper {
   justify-content: space-between;
-  padding: 8rem 14rem 8.1rem 14rem;
-}
-.donation .wrapper .donation_image_wrapper {
-  margin-top: 1.1rem;
+  align-items: center;
+  padding: 8rem 14.2rem 10rem 14.2rem;
 }
 .donation .wrapper .donation_content {
   max-width: 43rem;
@@ -301,10 +335,10 @@ body {
   font-weight: normal;
   line-height: 130%;
   letter-spacing: 0.06em;
+  margin-top: 0.2rem;
   color: #545454;
   max-width: 30rem;
   margin-bottom: 2rem;
-  margin-top: 0;
 }
 .donation .wrapper .donation_content .donation_description h5 {
   font-family: Georgia;
@@ -314,6 +348,7 @@ body {
   line-height: 110%;
   letter-spacing: 0.06em;
   margin-bottom: 2rem;
+  margin-top: 0;
 }
 .donation .wrapper .donation_content .donation_description h4 {
   font-family: Georgia;
@@ -330,11 +365,20 @@ body {
   font-style: italic;
   font-weight: normal;
   line-height: 150%;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.1rem;
   max-width: 38rem;
   color: #b2b2b2;
 }
 .donation .wrapper .donation_content .donation_description .credit_card {
+  font-family: Georgia;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 115%;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  color: #545454;
   background: #f1cdb3;
   display: flex;
   max-width: 35rem;
@@ -367,13 +411,14 @@ body {
   margin-top: 5.6rem;
   margin-bottom: 4rem;
 }
-.footer .wrapper .footer_content h4 {
+.footer .wrapper .footer_content a {
   font-family: Georgia;
   font-size: 2rem;
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
   letter-spacing: 0.06em;
+  text-decoration: none;
   color: #f1cdb3;
 }
 .footer .wrapper .footer_content .email {
@@ -391,6 +436,13 @@ body {
   display: flex;
   align-items: center;
   gap: 2rem;
+  margin-bottom: 3.3rem;
+}
+.footer .wrapper .footer_content .footer_location {
+  margin-right: 23px;
+}
+.footer .wrapper .footer_content .footer_location h3 {
+  margin-bottom: 3.3rem;
 }
 .footer .wrapper .footer_content > img {
   margin-top: 4rem;
