@@ -106,6 +106,7 @@ $color-dark-3xl: #292929;
         style: normal;
         weight: normal;
     }
+    line-height: 116%;
     letter-spacing: 0.13rem;
 }
 
@@ -122,6 +123,7 @@ $color-dark-3xl: #292929;
 @mixin slider_button {
     display: flex;
     align-items: center;
+    justify-content: center;
     border: 0.2rem solid $color-primary-color;
     border-radius: 50%;
     padding: 1.7rem;
@@ -131,6 +133,11 @@ $color-dark-3xl: #292929;
     &:hover {
         background: $color-primary-light;
         border-color: $color-primary-light;
+    }
+    &.inactive {
+        background: none;
+        border-color: $color-dark-s;
+        color: $color-dark-s;
     }
 }
 
@@ -151,7 +158,7 @@ $color-dark-3xl: #292929;
     padding: 1.3rem 4.3rem;
     background: $color-primary-color;
     border-radius: 10rem;
-    border: 2px solid $color-primary-color;
+    border: 0.2rem solid $color-primary-color;
     &:hover {
         background: $color-primary-light;
         border-color: $color-primary-light;
@@ -208,11 +215,12 @@ body {
             .logo_subtitle {
                 @include logo_subtitle;
                 color: $color-light-xl;
-                margin-top: 0.5rem;
+                margin-top: 1rem;
+                margin-bottom: 0;
             }
         }
         .top_menu {
-            line-height: 5.8rem;
+            line-height: 5.5rem;
             ul {
                 display: flex;
                 flex-direction: row;
@@ -241,7 +249,7 @@ body {
         .header_content {
             display: flex;
             justify-content: space-between;
-            margin-top: 4.3rem;
+            margin-top: 6rem;
             .header_content_left {
                 margin-top: 12.8rem;
             }
@@ -314,9 +322,9 @@ body {
                 }
                 .pets_items {
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: center;
                     width: 100%;
-                    padding: 0 0.8rem;
+                    column-gap: 9rem;
                     .pets_item {
                         display: flex;
                         flex-direction: column;
@@ -479,6 +487,67 @@ body {
             }
             & > img {
                 margin-top: 4rem;
+            }
+        }
+    }
+}
+
+/* pets.html */
+.out_pets_header {
+    background: $color-light-xl;
+    .wrapper {
+        .header {
+            padding: 3rem 0;
+            .logo_wrap {
+                .logo_title {
+                    color: $color-dark-l;
+                }
+                .logo_subtitle {
+                    color: $color-dark-3xl;
+                }
+            }
+            .top_menu {
+                ul {
+                    li {
+                        a {
+                            color: $color-dark-l;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pets {
+    .wrapper {
+        .pets_content {
+            .pets_carousel {
+                .pets_items.pets_pages {
+                    column-gap: 4rem;
+                    row-gap: 3rem;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+            }
+            .pets_navigation {
+                display: flex;
+                justify-content: center;
+                column-gap: 2rem;
+                .slider_button {
+                    @include slider_button;
+                    @include h4;
+                    border-color: $color-primary-light;
+                    margin-top: 6rem;
+                    &.active {
+                        background: $color-primary-color;
+                        border-color: $color-primary-color;
+                        &:hover {
+                            background-color: $color-primary-light;
+                            border-color: $color-primary-light;
+                        }
+                    }
+                }
             }
         }
     }
