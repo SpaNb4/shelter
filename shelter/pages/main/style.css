@@ -15,7 +15,7 @@
   font-family: Georgia;
   font-size: 1.7rem;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.102rem;
   color: #292929;
   display: inline-block;
   text-decoration: none;
@@ -33,7 +33,7 @@
   font-family: Georgia;
   font-size: 1.7rem;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.102rem;
   color: #292929;
   display: inline-block;
   text-decoration: none;
@@ -91,7 +91,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 110%;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.192rem;
   margin: 0;
   color: #f1cdb3;
   text-decoration: none;
@@ -179,7 +179,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.21rem;
   color: #545454;
   max-width: 37rem;
   margin-top: 1.5rem;
@@ -211,7 +211,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.21rem;
   color: #545454;
   text-align: center;
   margin: 0 auto;
@@ -267,7 +267,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   color: #545454;
   text-align: center;
   margin-top: 3rem;
@@ -294,7 +294,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.21rem;
   color: #545454;
   text-align: center;
   margin: 0 auto;
@@ -321,7 +321,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   color: #545454;
   margin-top: 3rem;
 }
@@ -343,7 +343,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.21rem;
   margin-top: 0.2rem;
   color: #545454;
   max-width: 30rem;
@@ -355,7 +355,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 110%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.09rem;
   margin-bottom: 2rem;
   margin-top: 0;
 }
@@ -365,7 +365,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   margin-top: 0;
 }
 .donation .wrapper .donation_content .donation_description p {
@@ -385,7 +385,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   text-decoration: none;
   color: #545454;
   background: #f1cdb3;
@@ -414,7 +414,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.21rem;
   color: #ffffff;
   margin-top: 5.6rem;
   margin-bottom: 4rem;
@@ -425,7 +425,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   text-decoration: none;
   color: #f1cdb3;
 }
@@ -501,7 +501,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 115%;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.12rem;
   border-color: #fddcc4;
   margin-top: 6rem;
 }

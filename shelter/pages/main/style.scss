@@ -43,7 +43,7 @@ $color-dark-3xl: #292929;
         weight: normal;
     }
     line-height: 130%;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.21rem;
 }
 
 @mixin h4 {
@@ -54,7 +54,7 @@ $color-dark-3xl: #292929;
         weight: normal;
     }
     line-height: 115%;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.12rem;
 }
 
 @mixin h5 {
@@ -65,7 +65,7 @@ $color-dark-3xl: #292929;
         weight: normal;
     }
     line-height: 110%;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.09rem;
 }
 
 @mixin paragraph-l {
@@ -96,7 +96,7 @@ $color-dark-3xl: #292929;
         weight: normal;
     }
     line-height: 110%;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.192rem;
 }
 
 @mixin logo_subtitle {
@@ -151,7 +151,7 @@ $color-dark-3xl: #292929;
     font-family: Georgia;
     font-size: 1.7rem;
     line-height: 130%;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.102rem;
     color: #292929;
     display: inline-block;
     text-decoration: none;
