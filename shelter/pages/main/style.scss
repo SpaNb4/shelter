@@ -192,7 +192,8 @@ body {
 
 .wrapper {
     display: flex;
-    max-width: 120rem;
+    max-width: 128rem;
+    padding: 0 4rem;
     margin: 0 auto;
 }
 
@@ -275,7 +276,7 @@ body {
 .about {
     .wrapper {
         justify-content: space-between;
-        padding: 8rem 17.5rem 10rem 17.5rem;
+        padding: 8rem 21.5rem 10rem 21.5rem;
         .about_content {
             max-width: 43rem;
             .about_title {
@@ -300,7 +301,7 @@ body {
 .pets {
     background: $color-light-l;
     .wrapper {
-        padding: 8rem 0 10rem 0;
+        padding: 8rem 4rem 10rem 4rem;
         .pets_content {
             width: 100%;
             .pets_title {
@@ -311,7 +312,6 @@ body {
             }
             .pets_carousel {
                 display: flex;
-                justify-content: space-between;
                 align-items: center;
                 margin-top: 6rem;
                 .slider_button {
@@ -397,7 +397,7 @@ body {
     .wrapper {
         justify-content: space-between;
         align-items: center;
-        padding: 8rem 14.2rem 10rem 14.2rem;
+        padding: 8rem 18.2rem 10rem 18.2rem;
         .donation_content {
             max-width: 43rem;
             .donation_title {
@@ -485,7 +485,7 @@ body {
                     max-width: 27rem;
                 }
             }
-            & > img {
+            > img {
                 margin-top: 4rem;
             }
         }
@@ -534,11 +534,11 @@ body {
                 display: flex;
                 justify-content: center;
                 column-gap: 2rem;
+                margin-top: 6rem;
                 .slider_button {
                     @include slider_button;
                     @include h4;
                     border-color: $color-primary-light;
-                    margin-top: 6rem;
                     &.active {
                         background: $color-primary-color;
                         border-color: $color-primary-color;
@@ -551,4 +551,44 @@ body {
             }
         }
     }
+}
+
+/* media query */
+@media only screen and (max-width: 768px) {
+    .pets {
+        .wrapper {
+            padding: 7rem 4rem 7.6rem 4rem;
+            .pets_content {
+                .pets_navigation {
+                    margin-top: 4rem;
+                }
+                .pets_carousel {
+                    margin-top: 4rem;
+                    .pets_items.pets_pages {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        .wrapper {
+            .footer_content {
+                flex-wrap: wrap;
+                justify-content: space-around;
+                h3 {
+                    margin-top: 3rem;
+                }
+                > img {
+                    margin-top: 6rem;
+                }
+                .address:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 320px) {
 }
