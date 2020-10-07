@@ -76,13 +76,13 @@ body {
 }
 
 .start_screen {
-  background: url(../../assets/images/noise_transparent.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+  background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 .start_screen .wrapper {
   flex-direction: column;
 }
 .start_screen .wrapper .header {
-  padding-top: 6rem;
+  margin-top: 6rem;
   display: flex;
   justify-content: space-between;
 }
@@ -107,6 +107,7 @@ body {
   color: #ffffff;
   margin-top: 1rem;
   margin-bottom: 0;
+  text-align: center;
 }
 .start_screen .wrapper .top_menu {
   line-height: 5.5rem;
@@ -141,7 +142,7 @@ body {
   margin-top: 6rem;
 }
 .start_screen .wrapper .header_content .header_content_left {
-  margin-top: 12.8rem;
+  margin-top: 16.3rem;
 }
 .start_screen .wrapper .header_content h2 {
   font-family: Georgia;
@@ -151,6 +152,8 @@ body {
   line-height: 130%;
   color: #ffffff;
   max-width: 31rem;
+  margin-top: 0;
+  margin-bottom: 4.2rem;
 }
 .start_screen .wrapper .header_content p {
   font-family: Arial;
@@ -158,13 +161,15 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 160%;
-  margin-top: 4rem;
   margin-bottom: 0;
   color: #cdcdcd;
   max-width: 46rem;
 }
 .start_screen .wrapper .header_content .btn-primary {
   margin-top: 4.2rem;
+}
+.start_screen .wrapper .header_content .img_wrapper img {
+  display: block;
 }
 
 .about .wrapper {
@@ -180,7 +185,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.21rem;
+  letter-spacing: 0.2rem;
   color: #545454;
   max-width: 37rem;
   margin-top: 1.5rem;
@@ -212,7 +217,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.21rem;
+  letter-spacing: 0.2rem;
   color: #545454;
   text-align: center;
   margin: 0 auto;
@@ -237,7 +242,7 @@ body {
   background: #fddcc4;
   border-color: #fddcc4;
 }
-.pets .wrapper .pets_content .pets_carousel .slider_button.inactive {
+.pets .wrapper .pets_content .pets_carousel .slider_button:disabled {
   background: none;
   border-color: #cdcdcd;
   color: #cdcdcd;
@@ -260,6 +265,7 @@ body {
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item:hover {
   background: #ffffff;
   cursor: pointer;
+  box-shadow: 0px 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_names {
   font-family: Georgia;
@@ -294,7 +300,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.21rem;
+  letter-spacing: 0.2rem;
   color: #545454;
   text-align: center;
   margin: 0 auto;
@@ -305,15 +311,13 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 6rem;
+  row-gap: 5.5rem;
 }
 .help .wrapper .help_content .help_items .help_item {
   display: flex;
   padding: 0 6rem;
   flex-direction: column;
   align-items: center;
-}
-.help .wrapper .help_content .help_items .help_item:first-child {
-  margin-bottom: 5.5rem;
 }
 .help .wrapper .help_content .help_items .help_item .help_names {
   font-family: Georgia;
@@ -332,7 +336,7 @@ body {
 .donation .wrapper {
   justify-content: space-between;
   align-items: center;
-  padding: 8rem 18.2rem 10rem 18.2rem;
+  padding: 8rem 18.2rem 10rem 18.3rem;
 }
 .donation .wrapper .donation_content {
   max-width: 43rem;
@@ -343,8 +347,8 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.21rem;
-  margin-top: 0.2rem;
+  letter-spacing: 0.2rem;
+  margin-top: 0rem;
   color: #545454;
   max-width: 30rem;
   margin-bottom: 2rem;
@@ -390,18 +394,22 @@ body {
   color: #545454;
   background: #f1cdb3;
   display: flex;
+  align-items: center;
   max-width: 35rem;
   padding: 1rem 1.5rem 1rem 1.5rem;
   margin-bottom: 0;
   border-radius: 0.9rem;
   margin-top: 0;
 }
+.donation .wrapper .donation_content .donation_description .credit_card:hover {
+  background: #fddcc4;
+}
 .donation .wrapper .donation_content .donation_description .credit_card img {
   margin-right: 1.5rem;
 }
 
 .footer {
-  background: url(../../assets/images/noise_transparent.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
+  background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
 .footer .wrapper .footer_content {
   display: flex;
@@ -414,7 +422,7 @@ body {
   font-style: normal;
   font-weight: normal;
   line-height: 130%;
-  letter-spacing: 0.21rem;
+  letter-spacing: 0.2rem;
   color: #ffffff;
   margin-top: 5.6rem;
   margin-bottom: 4rem;
@@ -429,30 +437,30 @@ body {
   text-decoration: none;
   color: #f1cdb3;
 }
-.footer .wrapper .footer_content .email {
+.footer .wrapper .footer_content .footer_contacts h3 {
+  max-width: 27.8rem;
+}
+.footer .wrapper .footer_content .footer_contacts .email {
   display: flex;
   align-items: center;
   gap: 2rem;
   margin-bottom: 4rem;
 }
-.footer .wrapper .footer_content .phone {
+.footer .wrapper .footer_content .footer_contacts .phone {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
-.footer .wrapper .footer_content .address {
+.footer .wrapper .footer_content .footer_location h3 {
+  margin-bottom: 3.3rem;
+  max-width: 27rem;
+}
+.footer .wrapper .footer_content .footer_location .address {
   display: flex;
   align-items: center;
   gap: 2rem;
   margin-bottom: 3.3rem;
   max-width: 30rem;
-}
-.footer .wrapper .footer_content .footer_contacts h3 {
-  max-width: 28rem;
-}
-.footer .wrapper .footer_content .footer_location h3 {
-  margin-bottom: 3.3rem;
-  max-width: 27rem;
 }
 .footer .wrapper .footer_content > img {
   margin-top: 4rem;
@@ -463,7 +471,8 @@ body {
   background: #ffffff;
 }
 .out_pets_header .wrapper .header {
-  padding: 3rem 0;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
 }
 .out_pets_header .wrapper .header .logo_wrap .logo_title {
   color: #545454;
@@ -503,13 +512,12 @@ body {
   font-weight: normal;
   line-height: 115%;
   letter-spacing: 0.12rem;
-  border-color: #fddcc4;
 }
 .pets .wrapper .pets_content .pets_navigation .slider_button:hover {
   background: #fddcc4;
   border-color: #fddcc4;
 }
-.pets .wrapper .pets_content .pets_navigation .slider_button.inactive {
+.pets .wrapper .pets_content .pets_navigation .slider_button:disabled {
   background: none;
   border-color: #cdcdcd;
   color: #cdcdcd;
@@ -525,17 +533,92 @@ body {
 
 /* media query */
 @media only screen and (max-width: 768px) {
+  .wrapper {
+    padding: 0 3rem;
+  }
+
+  .start_screen .wrapper .header {
+    margin-top: 3rem;
+  }
+  .start_screen .wrapper .header_content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .start_screen .wrapper .header_content .header_content_left {
+    margin-top: 0rem;
+  }
+  .start_screen .wrapper .header_content .header_content_left .btn_wrapper {
+    text-align: center;
+  }
+  .start_screen .wrapper .header_content .btn-primary {
+    margin-bottom: 10rem;
+  }
+  .start_screen .wrapper .header_content .img_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .start_screen .wrapper .header_content .img_wrapper img {
+    display: block;
+    width: 56.9rem;
+    height: 59.3rem;
+  }
+
+  .about .wrapper {
+    padding: 8rem 16.6rem 10rem 16.6rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about .wrapper > img {
+    order: 2;
+    margin-top: 8rem;
+  }
+  .about .wrapper .about_content {
+    max-width: initial;
+  }
+  .about .wrapper .about_content .about_title {
+    margin-top: 0;
+  }
+
   .pets .wrapper {
-    padding: 7rem 4rem 7.6rem 4rem;
+    padding: 8rem 3rem 10rem 3rem;
   }
   .pets .wrapper .pets_content .pets_navigation {
     margin-top: 4rem;
   }
   .pets .wrapper .pets_content .pets_carousel {
-    margin-top: 4rem;
+    margin-top: 6rem;
   }
-  .pets .wrapper .pets_content .pets_carousel .pets_items.pets_pages {
+  .pets .wrapper .pets_content .pets_carousel .pets_items {
     justify-content: center;
+  }
+  .pets .wrapper .pets_content .pets_carousel .pets_items {
+    column-gap: 4rem;
+  }
+
+  .wrapper.pets_pages {
+    padding: 8rem 4rem 7.6rem 4rem;
+  }
+  .wrapper.pets_pages .pets_carousel {
+    margin-top: 3rem;
+  }
+
+  .help .wrapper .help_content .help_items {
+    column-gap: 6rem;
+    row-gap: 5.5rem;
+  }
+  .help .wrapper .help_content .help_items .help_item {
+    padding: 0;
+    width: 17rem;
+  }
+
+  .donation .wrapper {
+    flex-direction: column;
+    padding: 8rem 13.2rem 10rem 13.1rem;
+  }
+  .donation .wrapper > img {
+    order: 2;
+    margin-top: 6rem;
   }
 
   .footer .wrapper .footer_content {
@@ -546,9 +629,226 @@ body {
     margin-top: 3rem;
   }
   .footer .wrapper .footer_content > img {
-    margin-top: 6rem;
+    margin-top: 6.5rem;
   }
   .footer .wrapper .footer_content .address:last-child {
     margin-bottom: 0;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .wrapper {
+    padding: 0 1rem;
+  }
+
+  .menu-triger, .menu-close {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    background: url(../../assets/images/menu-open.svg) 0 0 repeat;
+    background-size: 3rem 3rem;
+    margin-top: 15px;
+    margin-right: 43px;
+  }
+
+  .menu-close {
+    background: url(../../assets/images/menu-close.svg) 0 0 repeat;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .menu-popup {
+    display: none;
+    background: #000;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0;
+    padding: 3rem;
+    z-index: 9999;
+    box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  .out_pets_header .wrapper .header .top_menu ul li a {
+    color: #fafafa;
+  }
+
+  .start_screen .wrapper .top_menu ul {
+    flex-direction: column;
+    padding-top: 3rem;
+  }
+  .start_screen .wrapper .top_menu ul li {
+    padding-right: 0;
+  }
+  .start_screen .wrapper .top_menu ul li a {
+    border-top: 1px #e8e8e8 solid;
+    display: block;
+    padding: 1rem 0 1rem 0;
+  }
+  .start_screen .wrapper .top_menu ul li a.active {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .start_screen .wrapper .header_content .header_content_left h2 {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+    text-align: center;
+  }
+  .start_screen .wrapper .header_content .header_content_left p {
+    text-align: center;
+  }
+  .start_screen .wrapper .header_content .img_wrapper img {
+    width: 26rem;
+    height: 27.2rem;
+  }
+  .start_screen .wrapper .header_content .btn-primary {
+    margin-bottom: 10.5rem;
+  }
+
+  .about .wrapper {
+    padding: 4.2rem 2.5rem 4.24rem 2.5rem;
+  }
+  .about .wrapper > img {
+    margin-top: 4.2rem;
+    width: 26rem;
+    height: 35.36rem;
+  }
+  .about .wrapper .about_content .about_title {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+    text-align: center;
+  }
+  .about .wrapper .about_content .about_description {
+    text-align: justify;
+  }
+  .about .wrapper .about_content .about_description p:last-child {
+    margin-top: 2.1rem;
+  }
+
+  .pets .wrapper {
+    padding: 4.2rem 1rem;
+  }
+  .pets .wrapper .pets_content .pets_title {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+  }
+  .pets .wrapper .pets_content .pets_carousel {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 4.2rem;
+    padding: 0 2rem;
+  }
+  .pets .wrapper .pets_content .pets_carousel .slider_button {
+    order: 3;
+    margin-top: 2rem;
+  }
+  .pets .wrapper .pets_content .pets_button_wrapper {
+    margin-top: 4.2rem;
+  }
+
+  .help .wrapper {
+    padding: 4.2rem 1.5rem;
+  }
+  .help .wrapper .help_content .help_title {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+    max-width: 23rem;
+  }
+  .help .wrapper .help_content .help_items {
+    gap: 3rem;
+    margin-top: 4.2rem;
+    justify-content: normal;
+  }
+  .help .wrapper .help_content .help_items .help_item {
+    width: 13rem;
+  }
+  .help .wrapper .help_content .help_items .help_item .help_names {
+    font-family: Georgia;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 110%;
+    letter-spacing: 0.09rem;
+    margin-top: 2rem;
+  }
+  .help .wrapper .help_content .help_items .help_item > img {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .donation .wrapper {
+    padding: 4.2rem 2rem;
+  }
+  .donation .wrapper > img {
+    width: 26rem;
+    height: 13.52rem;
+  }
+  .donation .wrapper .donation_content .donation_title {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
+    text-align: center;
+  }
+  .donation .wrapper .donation_content .donation_description h5 {
+    font-family: Arial;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 160%;
+    letter-spacing: 0;
+  }
+  .donation .wrapper .donation_content .donation_description .credit_card {
+    font-family: Georgia;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 110%;
+    letter-spacing: 0.09rem;
+    letter-spacing: 0;
+  }
+
+  .footer .wrapper .footer_content .footer_contacts h3 {
+    text-align: center;
+    margin-bottom: 4.3rem;
+  }
+  .footer .wrapper .footer_content .footer_contacts .email {
+    margin-bottom: 4.3rem;
+  }
+  .footer .wrapper .footer_content .footer_location h3 {
+    text-align: center;
+    max-width: initial;
+    margin-top: 4rem;
+  }
+  .footer .wrapper .footer_content > img {
+    width: 26rem;
+    height: 26.9rem;
   }
 }

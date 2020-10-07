@@ -43,7 +43,13 @@ $color-dark-3xl: #292929;
         weight: normal;
     }
     line-height: 130%;
-    letter-spacing: 0.21rem;
+    letter-spacing: 0.2rem;
+}
+
+@mixin h3-mobile {
+    @include h3;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
 }
 
 @mixin h4 {
@@ -111,12 +117,12 @@ $color-dark-3xl: #292929;
 }
 
 @mixin start-screen-gradient-background {
-    background: url(../../assets/images/noise_transparent.png),
+    background: url(../../assets/images/noise_transparent@2x.png),
         radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 @mixin footer-gradient-background {
-    background: url(../../assets/images/noise_transparent.png),
+    background: url(../../assets/images/noise_transparent@2x.png),
         radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
 
@@ -134,7 +140,7 @@ $color-dark-3xl: #292929;
         background: $color-primary-light;
         border-color: $color-primary-light;
     }
-    &.inactive {
+    &:disabled {
         background: none;
         border-color: $color-dark-s;
         color: $color-dark-s;
@@ -202,7 +208,7 @@ body {
     .wrapper {
         flex-direction: column;
         .header {
-            padding-top: 6rem;
+            margin-top: 6rem;
             display: flex;
             justify-content: space-between;
         }
@@ -218,6 +224,7 @@ body {
                 color: $color-light-xl;
                 margin-top: 1rem;
                 margin-bottom: 0;
+                text-align: center;
             }
         }
         .top_menu {
@@ -252,22 +259,28 @@ body {
             justify-content: space-between;
             margin-top: 6rem;
             .header_content_left {
-                margin-top: 12.8rem;
+                margin-top: 16.3rem;
             }
             h2 {
                 @include h2;
                 color: $color-light-xl;
                 max-width: 31rem;
+                margin-top: 0;
+                margin-bottom: 4.2rem;
             }
             p {
                 @include paragraph-l;
-                margin-top: 4rem;
                 margin-bottom: 0;
                 color: $color-dark-s;
                 max-width: 46rem;
             }
             .btn-primary {
                 margin-top: 4.2rem;
+            }
+            .img_wrapper {
+                img {
+                    display: block;
+                }
             }
         }
     }
@@ -333,6 +346,7 @@ body {
                         &:hover {
                             background: $color-light-xl;
                             cursor: pointer;
+                            box-shadow: 0px 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
                         }
                     }
                     .pets_names {
@@ -373,14 +387,12 @@ body {
                 flex-wrap: wrap;
                 justify-content: center;
                 margin-top: 6rem;
+                row-gap: 5.5rem;
                 .help_item {
                     display: flex;
                     padding: 0 6rem;
                     flex-direction: column;
                     align-items: center;
-                    &:first-child {
-                        margin-bottom: 5.5rem;
-                    }
                     .help_names {
                         @include h4;
                         color: $color-dark-l;
@@ -397,12 +409,12 @@ body {
     .wrapper {
         justify-content: space-between;
         align-items: center;
-        padding: 8rem 18.2rem 10rem 18.2rem;
+        padding: 8rem 18.2rem 10rem 18.3rem;
         .donation_content {
             max-width: 43rem;
             .donation_title {
                 @include h3;
-                margin-top: 0.2rem;
+                margin-top: 0rem;
                 color: $color-dark-l;
                 max-width: 30rem;
                 margin-bottom: 2rem;
@@ -428,13 +440,17 @@ body {
                     @include h4;
                     text-decoration: none;
                     color: $color-dark-l;
-                    background: #f1cdb3;
+                    background: $color-primary-color;
                     display: flex;
+                    align-items: center;
                     max-width: 35rem;
                     padding: 1rem 1.5rem 1rem 1.5rem;
                     margin-bottom: 0;
                     border-radius: 0.9rem;
                     margin-top: 0;
+                    &:hover {
+                        background: $color-primary-light;
+                    }
                     img {
                         margin-right: 1.5rem;
                     }
@@ -462,27 +478,27 @@ body {
                 text-decoration: none;
                 color: $color-primary-color;
             }
-            .email {
-                @include footer_icons;
-                margin-bottom: 4rem;
-            }
-            .phone {
-                @include footer_icons;
-            }
-            .address {
-                @include footer_icons;
-                margin-bottom: 3.3rem;
-                max-width: 30rem;
-            }
             .footer_contacts {
                 h3 {
-                    max-width: 28rem;
+                    max-width: 27.8rem;
+                }
+                .email {
+                    @include footer_icons;
+                    margin-bottom: 4rem;
+                }
+                .phone {
+                    @include footer_icons;
                 }
             }
             .footer_location {
                 h3 {
                     margin-bottom: 3.3rem;
                     max-width: 27rem;
+                }
+                .address {
+                    @include footer_icons;
+                    margin-bottom: 3.3rem;
+                    max-width: 30rem;
                 }
             }
             > img {
@@ -497,7 +513,8 @@ body {
     background: $color-light-xl;
     .wrapper {
         .header {
-            padding: 3rem 0;
+            margin-bottom: 3rem;
+            margin-top: 3rem;
             .logo_wrap {
                 .logo_title {
                     color: $color-dark-l;
@@ -538,7 +555,6 @@ body {
                 .slider_button {
                     @include slider_button;
                     @include h4;
-                    border-color: $color-primary-light;
                     &.active {
                         background: $color-primary-color;
                         border-color: $color-primary-color;
@@ -555,19 +571,104 @@ body {
 
 /* media query */
 @media only screen and (max-width: 768px) {
+    .wrapper {
+        padding: 0 3rem;
+    }
+    .start_screen {
+        .wrapper {
+            .header {
+                margin-top: 3rem;
+            }
+            .header_content {
+                flex-direction: column;
+                align-items: center;
+                .header_content_left {
+                    margin-top: 0rem;
+                    .btn_wrapper {
+                        text-align: center;
+                    }
+                }
+                .btn-primary {
+                    margin-bottom: 10rem;
+                }
+                .img_wrapper {
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    img {
+                        display: block;
+                        width: 56.9rem;
+                        height: 59.3rem;
+                    }
+                }
+            }
+        }
+    }
+    .about {
+        .wrapper {
+            padding: 8rem 16.6rem 10rem 16.6rem;
+            flex-direction: column;
+            align-items: center;
+            > img {
+                order: 2;
+                margin-top: 8rem;
+            }
+            .about_content {
+                max-width: initial;
+                .about_title {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
     .pets {
         .wrapper {
-            padding: 7rem 4rem 7.6rem 4rem;
+            padding: 8rem 3rem 10rem 3rem;
             .pets_content {
                 .pets_navigation {
                     margin-top: 4rem;
                 }
                 .pets_carousel {
-                    margin-top: 4rem;
-                    .pets_items.pets_pages {
+                    margin-top: 6rem;
+                    .pets_items {
                         justify-content: center;
                     }
+                    .pets_items {
+                        column-gap: 4rem;
+                    }
                 }
+            }
+        }
+    }
+
+    .wrapper.pets_pages {
+        padding: 8rem 4rem 7.6rem 4rem;
+        .pets_carousel {
+            margin-top: 3rem;
+        }
+    }
+
+    .help {
+        .wrapper {
+            .help_content {
+                .help_items {
+                    column-gap: 6rem;
+                    row-gap: 5.5rem;
+                    .help_item {
+                        padding: 0;
+                        width: 17rem;
+                    }
+                }
+            }
+        }
+    }
+    .donation {
+        .wrapper {
+            flex-direction: column;
+            padding: 8rem 13.2rem 10rem 13.1rem;
+            > img {
+                order: 2;
+                margin-top: 6rem;
             }
         }
     }
@@ -580,7 +681,7 @@ body {
                     margin-top: 3rem;
                 }
                 > img {
-                    margin-top: 6rem;
+                    margin-top: 6.5rem;
                 }
                 .address:last-child {
                     margin-bottom: 0;
@@ -591,4 +692,199 @@ body {
 }
 
 @media only screen and (max-width: 320px) {
+    .wrapper {
+        padding: 0 1rem;
+    }
+    .menu-triger {
+        display: block;
+        width: 3rem;
+        height: 3rem;
+        background: url(../../assets/images/menu-open.svg) 0 0 repeat;
+        background-size: 3rem 3rem;
+        margin-top: 15px;
+        margin-right: 43px;
+    }
+    .menu-close {
+        @extend .menu-triger;
+        background: url(../../assets/images/menu-close.svg) 0 0 repeat;
+        width: 2rem;
+        height: 2rem;
+    }
+    .menu-popup {
+        display: none;
+        background: #000;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0;
+        padding: 3rem;
+        z-index: 9999;
+        box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    .out_pets_header .wrapper .header .top_menu ul li a {
+        color: $color-light-s;
+    }
+    .start_screen {
+        .wrapper {
+            .top_menu {
+                ul {
+                    flex-direction: column;
+                    padding-top: 3rem;
+                    li {
+                        padding-right: 0;
+                        a {
+                            border-top: 1px #e8e8e8 solid;
+                            display: block;
+                            padding: 1rem 0 1rem 0;
+                            &.active {
+                                border-bottom: none;
+                                padding-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .header_content {
+                .header_content_left {
+                    h2 {
+                        @include h3-mobile;
+                        text-align: center;
+                    }
+                    p {
+                        text-align: center;
+                    }
+                }
+                .img_wrapper img {
+                    width: 26rem;
+                    height: 27.2rem;
+                }
+                .btn-primary {
+                    margin-bottom: 10.5rem;
+                }
+            }
+        }
+    }
+    .about {
+        .wrapper {
+            padding: 4.2rem 2.5rem 4.24rem 2.5rem;
+            > img {
+                margin-top: 4.2rem;
+                width: 26rem;
+                height: 35.36rem;
+            }
+            .about_content {
+                .about_title {
+                    @include h3-mobile;
+                    text-align: center;
+                }
+                .about_description {
+                    text-align: justify;
+                    p:last-child {
+                        margin-top: 2.1rem;
+                    }
+                }
+            }
+        }
+    }
+    .pets {
+        .wrapper {
+            padding: 4.2rem 1rem;
+            .pets_content {
+                .pets_title {
+                    @include h3-mobile;
+                }
+                .pets_carousel {
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    margin-top: 4.2rem;
+                    padding: 0 2rem;
+                    .slider_button {
+                        order: 3;
+                        margin-top: 2rem;
+                    }
+                }
+                .pets_button_wrapper {
+                    margin-top: 4.2rem;
+                }
+            }
+        }
+    }
+    .help {
+        .wrapper {
+            padding: 4.2rem 1.5rem;
+            .help_content {
+                .help_title {
+                    @include h3-mobile;
+                    max-width: 23rem;
+                }
+                .help_items {
+                    gap: 3rem;
+                    margin-top: 4.2rem;
+                    justify-content: normal;
+                    .help_item {
+                        width: 13rem;
+                        .help_names {
+                            @include h5;
+                            margin-top: 2rem;
+                        }
+                        > img {
+                            width: 5rem;
+                            height: 5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .donation {
+        .wrapper {
+            padding: 4.2rem 2rem;
+            > img {
+                width: 26rem;
+                height: 13.52rem;
+            }
+            .donation_content {
+                .donation_title {
+                    @include h3-mobile;
+                    text-align: center;
+                }
+                .donation_description {
+                    h5 {
+                        @include paragraph-l;
+                        letter-spacing: 0;
+                    }
+                    .credit_card {
+                        @include h5;
+                        letter-spacing: 0;
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        .wrapper {
+            .footer_content {
+                .footer_contacts {
+                    h3 {
+                        text-align: center;
+                        margin-bottom: 4.3rem;
+                    }
+                    .email {
+                        margin-bottom: 4.3rem;
+                    }
+                }
+                .footer_location {
+                    h3 {
+                        text-align: center;
+                        max-width: initial;
+                        margin-top: 4rem;
+                    }
+                }
+                >img {
+                    width: 26rem;
+                    height: 26.9rem;
+                }
+            }
+        }
+    }
 }

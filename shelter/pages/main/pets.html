@@ -24,10 +24,12 @@
 					<h1 class="logo_title">Cozy House</h1>
 					<h3 class="logo_subtitle">Shelter for pets in Boston</h3>
 				</div>
-				<nav class="top_menu">
+				<a class="menu-triger" href="#"></a>
+				<nav class="top_menu menu-popup">
+					<a class="menu-close" href="#"></a>
 					<ul>
 						<li><a href="index.html">About the shelter</a></li>
-						<li><a href="#" class="active">Our pets</a></li>
+						<li><a href="pets.html" class="active">Our pets</a></li>
 						<li><a href="#">Help the shelter</a></li>
 						<li><a href="#">Contacts</a></li>
 					</ul>
@@ -37,12 +39,12 @@
 	</div>
 
 	<div class="pets">
-		<div class="wrapper">
+		<div class="wrapper pets_pages">
 			<div class="pets_content">
 				<h3 class="pets_title">Our friends who<br>
 					are looking for a house</h3>
 				<div class="pets_carousel">
-					<div class="pets_items pets_pages">
+					<div class="pets_items">
 						<div class="pets_item">
 							<img src="../../assets/images/pets-katrine.png" alt="">
 							<div class="pets_names">Katrine</div>
@@ -73,7 +75,7 @@
 							<div class="pets_names">Charly</div>
 							<a href="#" class="btn-secondary">Learn more</a>
 						</div>
-						<div class="pets_item">
+						<!-- <div class="pets_item">
 							<img src="../../assets/images/pets-scarlet.png" alt="">
 							<div class="pets_names">Scarlett</div>
 							<a href="#" class="btn-secondary">Learn more</a>
@@ -82,15 +84,15 @@
 							<img src="../../assets/images/pets-freddie.png" alt="">
 							<div class="pets_names">Freddie</div>
 							<a href="#" class="btn-secondary">Learn more</a>
-						</div>
+						</div> -->
 					</div>
 				</div>
 				<div class="pets_navigation">
-					<button class="slider_button inactive"><<</button>
-					<button class="slider_button inactive"><</button>
+					<button class="slider_button" disabled>&lt;&lt;</button>
+					<button class="slider_button" disabled>&lt;</button>
 					<button class="slider_button active">1</button>
-					<button class="slider_button">></button>
-					<button class="slider_button">>></button>
+					<button class="slider_button">&gt;</button>
+					<button class="slider_button">&gt;&gt;</button>
 				</div>
 			</div>
 		</div>
@@ -121,6 +123,8 @@
 			</div>
 		</div>
 	</footer>
+
+	<script src="app.js"></script>
 </body>
 
 </html>
