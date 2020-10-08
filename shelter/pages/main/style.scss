@@ -238,6 +238,7 @@ body {
                     a {
                         font-size: 1.5rem;
                         line-height: 160%;
+                        letter-spacing: 0.01rem;
                         color: $color-dark-s;
                         text-decoration: none;
                         &:hover {
@@ -388,9 +389,10 @@ body {
                 justify-content: center;
                 margin-top: 6rem;
                 row-gap: 5.5rem;
+                column-gap: 12rem;
+                padding: 0 12.5rem;
                 .help_item {
                     display: flex;
-                    padding: 0 6rem;
                     flex-direction: column;
                     align-items: center;
                     .help_names {
@@ -444,7 +446,8 @@ body {
                     display: flex;
                     align-items: center;
                     max-width: 35rem;
-                    padding: 1rem 1.5rem 1rem 1.5rem;
+                    padding: 1rem 0;
+                    justify-content: center;
                     margin-bottom: 0;
                     border-radius: 0.9rem;
                     margin-top: 0;
@@ -510,6 +513,8 @@ body {
 
 /* pets.html */
 .out_pets_header {
+    position: sticky;
+    top: 0;
     background: $color-light-xl;
     .wrapper {
         .header {
@@ -537,13 +542,12 @@ body {
 }
 
 .pets {
-    .wrapper {
+    .wrapper.pets_pages {
         .pets_content {
             .pets_carousel {
-                .pets_items.pets_pages {
+                .pets_items {
                     column-gap: 4rem;
                     row-gap: 3rem;
-                    justify-content: space-between;
                     flex-wrap: wrap;
                 }
             }
@@ -570,7 +574,7 @@ body {
 }
 
 /* media query */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1279px) {
     .wrapper {
         padding: 0 3rem;
     }
@@ -607,10 +611,9 @@ body {
     .about {
         .wrapper {
             padding: 8rem 16.6rem 10rem 16.6rem;
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             > img {
-                order: 2;
                 margin-top: 8rem;
             }
             .about_content {
@@ -625,9 +628,6 @@ body {
         .wrapper {
             padding: 8rem 3rem 10rem 3rem;
             .pets_content {
-                .pets_navigation {
-                    margin-top: 4rem;
-                }
                 .pets_carousel {
                     margin-top: 6rem;
                     .pets_items {
@@ -641,10 +641,17 @@ body {
         }
     }
 
-    .wrapper.pets_pages {
-        padding: 8rem 4rem 7.6rem 4rem;
-        .pets_carousel {
-            margin-top: 3rem;
+    .pets {
+        .wrapper.pets_pages {
+            padding: 8rem 4rem 7.6rem 4rem;
+            .pets_content {
+                .pets_carousel {
+                    margin-top: 3rem;
+                }
+                .pets_navigation {
+                    margin-top: 4rem;
+                }
+            }
         }
     }
 
@@ -654,6 +661,7 @@ body {
                 .help_items {
                     column-gap: 6rem;
                     row-gap: 5.5rem;
+                    padding: 0 6.9rem;
                     .help_item {
                         padding: 0;
                         width: 17rem;
@@ -664,10 +672,9 @@ body {
     }
     .donation {
         .wrapper {
-            flex-direction: column;
+            flex-direction: column-reverse;
             padding: 8rem 13.2rem 10rem 13.1rem;
             > img {
-                order: 2;
                 margin-top: 6rem;
             }
         }
@@ -691,7 +698,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 767px) {
     .wrapper {
         padding: 0 1rem;
     }
@@ -809,6 +816,24 @@ body {
             }
         }
     }
+
+    .pets {
+        .wrapper.pets_pages {
+            padding: 4.2rem 1rem;
+            .pets_content {
+                .pets_carousel {
+                    margin-top: 4.2rem;
+                }
+                .pets_navigation {
+                    column-gap: 1rem;
+                    margin-top: 4.2rem;
+                }
+            }
+        }
+    }
+
+
+
     .help {
         .wrapper {
             padding: 4.2rem 1.5rem;
@@ -821,11 +846,12 @@ body {
                     gap: 3rem;
                     margin-top: 4.2rem;
                     justify-content: normal;
+                    padding: 0 0;
                     .help_item {
                         width: 13rem;
                         .help_names {
                             @include h5;
-                            margin-top: 2rem;
+                            margin-top: 2.1rem;
                         }
                         > img {
                             width: 5rem;
@@ -842,6 +868,7 @@ body {
             > img {
                 width: 26rem;
                 height: 13.52rem;
+                margin-top: 4.2rem;
             }
             .donation_content {
                 .donation_title {
@@ -855,7 +882,10 @@ body {
                     }
                     .credit_card {
                         @include h5;
-                        letter-spacing: 0;
+                    }
+                    p {
+                        text-align: justify;
+                        margin-bottom: 0;
                     }
                 }
             }
@@ -867,22 +897,19 @@ body {
                 .footer_contacts {
                     h3 {
                         text-align: center;
-                        margin-bottom: 4.3rem;
-                    }
-                    .email {
-                        margin-bottom: 4.3rem;
                     }
                 }
                 .footer_location {
                     h3 {
                         text-align: center;
-                        max-width: initial;
                         margin-top: 4rem;
+                        max-width: 30rem;
                     }
                 }
-                >img {
+                > img {
                     width: 26rem;
                     height: 26.9rem;
+                    margin-top: 9.2rem;
                 }
             }
         }
