@@ -795,6 +795,7 @@ body {
   .help .wrapper .help_content .help_items {
     gap: 3rem;
     margin-top: 4.2rem;
+    justify-content: normal;
     padding: 0 0;
   }
   .help .wrapper .help_content .help_items .help_item {
