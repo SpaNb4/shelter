@@ -224,9 +224,8 @@ body {
   margin: 0 auto;
 }
 .pets .wrapper .pets_content .pets_carousel {
-  display: flex;
-  align-items: center;
-  margin-top: 6rem;
+  margin-top: 2.5rem;
+  position: relative;
 }
 .pets .wrapper .pets_content .pets_carousel .slider_button {
   display: flex;
@@ -234,10 +233,12 @@ body {
   justify-content: center;
   border: 0.2rem solid #f1cdb3;
   border-radius: 50%;
-  padding: 1.7rem;
+  outline: none;
   width: 5.2rem;
   height: 5.2rem;
   background: none;
+  position: absolute;
+  top: 22.6rem;
 }
 .pets .wrapper .pets_content .pets_carousel .slider_button:hover {
   background: #fddcc4;
@@ -250,11 +251,15 @@ body {
 }
 .pets .wrapper .pets_content .pets_carousel .slider_button.reversed {
   transform: rotate(180deg);
+  left: 95.7%;
+}
+.pets .wrapper .pets_content .pets_carousel .tns-outer {
+  padding: 0 7.5rem !important;
+  margin: 0 auto;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items {
   display: flex;
   justify-content: center;
-  width: 100%;
   column-gap: 9rem;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item {
@@ -262,6 +267,8 @@ body {
   flex-direction: column;
   background: #fafafa;
   border-radius: 0.9rem;
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item:hover {
   background: #ffffff;
@@ -286,7 +293,7 @@ body {
 }
 .pets .wrapper .pets_content .pets_button_wrapper {
   text-align: center;
-  margin-top: 6rem;
+  margin-top: 2.5rem;
 }
 
 .help .wrapper {
@@ -507,7 +514,7 @@ body {
   justify-content: center;
   border: 0.2rem solid #f1cdb3;
   border-radius: 50%;
-  padding: 1.7rem;
+  outline: none;
   width: 5.2rem;
   height: 5.2rem;
   background: none;
@@ -534,6 +541,77 @@ body {
 .pets .wrapper.pets_pages .pets_content .pets_navigation .slider_button.active:hover {
   background-color: #fddcc4;
   border-color: #fddcc4;
+}
+
+.blackout {
+  position: fixed;
+  background: rgba(41, 41, 41, 0.6);
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.blackout.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* modal */
+.modal_pets {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 1;
+  background-color: #fafafa;
+  max-width: 80%;
+  width: 900px;
+}
+.modal_pets .wrapper {
+  display: flex;
+}
+.modal_pets.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal_close {
+  width: 22px;
+  height: 22px;
+  font-size: 0;
+  border: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: -34px;
+}
+.modal_close::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  width: 19px;
+  height: 3px;
+  background-color: #d0d0d0;
+  transform: rotate(45deg);
+}
+.modal_close::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 2px;
+  width: 19px;
+  height: 3px;
+  background-color: #d0d0d0;
+  transform: rotate(-45deg);
+}
+
+.menu_popup_logo {
+  display: none;
 }
 
 /* media query */
@@ -577,9 +655,6 @@ body {
   .about .wrapper > img {
     margin-top: 8rem;
   }
-  .about .wrapper .about_content {
-    max-width: initial;
-  }
   .about .wrapper .about_content .about_title {
     margin-top: 0;
   }
@@ -587,14 +662,11 @@ body {
   .pets .wrapper {
     padding: 8rem 3rem 10rem 3rem;
   }
-  .pets .wrapper .pets_content .pets_carousel {
-    margin-top: 6rem;
-  }
-  .pets .wrapper .pets_content .pets_carousel .pets_items {
-    justify-content: center;
-  }
   .pets .wrapper .pets_content .pets_carousel .pets_items {
     column-gap: 4rem;
+  }
+  .pets .wrapper .pets_content .pets_carousel .tns-outer {
+    max-width: 67.5rem;
   }
 
   .pets .wrapper.pets_pages {
@@ -627,7 +699,8 @@ body {
 
   .footer .wrapper .footer_content {
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    column-gap: 6rem;
   }
   .footer .wrapper .footer_content h3 {
     margin-top: 3rem;
@@ -644,7 +717,7 @@ body {
     padding: 0 1rem;
   }
 
-  .menu-triger, .menu-close {
+  .menu_trigger {
     display: block;
     width: 3rem;
     height: 3rem;
@@ -654,43 +727,54 @@ body {
     margin-right: 43px;
   }
 
-  .menu-close {
-    background: url(../../assets/images/menu-close.svg) 0 0 repeat;
-    width: 2rem;
-    height: 2rem;
+  .menu_close {
+    transform: rotate(90deg);
+    transition: 3.5s;
   }
 
-  .menu-popup {
+  .menu_popup {
     display: none;
-    background: #000;
-    position: absolute;
-    left: 0px;
-    right: 0px;
+    background: #292929;
+    width: 320px;
+    height: 100%;
+    position: fixed;
+    right: 0;
     top: 0;
-    padding: 3rem;
-    z-index: 9999;
-    box-shadow: 0 1.4rem 2.8rem rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    z-index: 1;
+  }
+  .menu_popup.active {
+    display: block;
+  }
+  .menu_popup .menu_popup_logo {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-top: 3rem;
   }
 
   .out_pets_header .wrapper .header .top_menu ul li a {
-    color: #fafafa;
+    color: #cdcdcd;
   }
 
   .start_screen .wrapper .top_menu ul {
     flex-direction: column;
-    padding-top: 3rem;
+    margin-top: 15.8rem;
   }
   .start_screen .wrapper .top_menu ul li {
     padding-right: 0;
+    text-align: center;
   }
   .start_screen .wrapper .top_menu ul li a {
-    border-top: 1px #e8e8e8 solid;
-    display: block;
-    padding: 1rem 0 1rem 0;
+    font-family: Arial;
+    font-size: 3.2rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 160%;
+    display: inline-block;
+    margin-bottom: 4rem;
   }
-  .start_screen .wrapper .top_menu ul li a.active {
-    border-bottom: none;
-    padding-bottom: 0;
+  .start_screen .wrapper .top_menu ul li a:hover {
+    color: #fafafa;
   }
   .start_screen .wrapper .header_content .header_content_left h2 {
     font-family: Georgia;
@@ -702,9 +786,12 @@ body {
     font-size: 2.5rem;
     letter-spacing: 0.15rem;
     text-align: center;
+    max-width: 26rem;
+    margin: 0 auto;
   }
   .start_screen .wrapper .header_content .header_content_left p {
     text-align: center;
+    margin-top: 4.2rem;
   }
   .start_screen .wrapper .header_content .img_wrapper img {
     width: 26rem;
@@ -795,7 +882,7 @@ body {
   .help .wrapper .help_content .help_items {
     gap: 3rem;
     margin-top: 4.2rem;
-    justify-content: normal;
+    justify-content: space-between;
     padding: 0 0;
   }
   .help .wrapper .help_content .help_items .help_item {
@@ -833,6 +920,8 @@ body {
     font-size: 2.5rem;
     letter-spacing: 0.15rem;
     text-align: center;
+    max-width: 22rem;
+    margin: 0 auto;
   }
   .donation .wrapper .donation_content .donation_description h5 {
     font-family: Arial;
@@ -840,7 +929,9 @@ body {
     font-style: normal;
     font-weight: normal;
     line-height: 160%;
+    text-align: center;
     letter-spacing: 0;
+    margin-top: 2rem;
   }
   .donation .wrapper .donation_content .donation_description .credit_card {
     font-family: Georgia;
@@ -855,17 +946,51 @@ body {
     margin-bottom: 0;
   }
 
+  .footer .wrapper .footer_content {
+    padding: 0 0;
+  }
   .footer .wrapper .footer_content .footer_contacts h3 {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
     text-align: center;
   }
+  .footer .wrapper .footer_content .footer_contacts .email {
+    justify-content: center;
+  }
+  .footer .wrapper .footer_content .footer_contacts .phone {
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
   .footer .wrapper .footer_content .footer_location h3 {
+    font-family: Georgia;
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 130%;
+    letter-spacing: 0.2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.15rem;
     text-align: center;
     margin-top: 4rem;
-    max-width: 30rem;
+    max-width: 29rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
+  .footer .wrapper .footer_content .footer_location .address {
+    margin-bottom: 4rem;
+  }
+  .footer .wrapper .footer_content .footer_location .address:last-child {
+    margin-bottom: 0;
   }
   .footer .wrapper .footer_content > img {
     width: 26rem;
     height: 26.9rem;
-    margin-top: 9.2rem;
+    margin-top: 4rem;
   }
 }

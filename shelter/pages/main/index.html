@@ -7,6 +7,7 @@
 	<title>Shelter</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="/assets/static/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon-16x16.png">
@@ -20,13 +21,19 @@
 	<div class="start_screen">
 		<div class="wrapper">
 			<header class="header">
-				<div class="logo_wrap">
+				<div id="logo" class="logo_wrap">
 					<h1 class="logo_title">Cozy House</h1>
 					<h3 class="logo_subtitle">Shelter for pets in Boston</h3>
 				</div>
-				<a class="menu-triger" href="#"></a>
-				<nav class="top_menu menu-popup">
-					<a class="menu-close" href="#"></a>
+				<a id="menu_trigger" class="menu_trigger" href="#"></a>
+				<nav id="menu_popup" class="top_menu menu_popup">
+					<div class="menu_popup_logo">
+						<div class="logo_wrap">
+							<h1 class="logo_title">Cozy House</h1>
+							<h3 class="logo_subtitle">Shelter for pets in Boston</h3>
+						</div>
+						<a id="menu_close" class="menu_trigger" href="#"></a>
+					</div>
 					<ul>
 						<li><a href="index.html" class="active">About the shelter</a></li>
 						<li><a href="../pets/pets.html">Our pets</a></li>
@@ -81,33 +88,52 @@
 				<h3 class="pets_title">Our friends who<br>
 					are looking for a house</h3>
 				<div class="pets_carousel">
-					<button class="slider_button">
-						<svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="currentColor" />
-						</svg>
-					</button>
 					<div class="pets_items">
 						<div class="pets_item">
 							<img src="../../assets/images/pets-katrine.png" alt="">
 							<div class="pets_names">Katrine</div>
 							<a href="#" class="btn-secondary">Learn more</a>
 						</div>
-						<!-- <div class="pets_item">
+						<div class="pets_item">
 							<img src="../../assets/images/pets-jennifer.png" alt="">
 							<div class="pets_names">Jennifer</div>
 							<a href="#" class="btn-secondary">Learn more</a>
-						</div> -->
-						<!-- <div class="pets_item">
+						</div>
+						<div class="pets_item">
 							<img src="../../assets/images/pets-woody.png" alt="">
 							<div class="pets_names">Woody</div>
 							<a href="#" class="btn-secondary">Learn more</a>
-						</div> -->
+						</div>
+						<div class="pets_item">
+							<img src="../../assets/images/pets-katrine.png" alt="">
+							<div class="pets_names">Katrine2</div>
+							<a href="#" class="btn-secondary">Learn more</a>
+						</div>
+						<div class="pets_item">
+							<img src="../../assets/images/pets-jennifer.png" alt="">
+							<div class="pets_names">Jennifer2</div>
+							<a href="#" class="btn-secondary">Learn more</a>
+						</div>
+						<div class="pets_item">
+							<img src="../../assets/images/pets-woody.png" alt="">
+							<div class="pets_names">Woody2</div>
+							<a href="#" class="btn-secondary">Learn more</a>
+						</div>
 					</div>
-					<button class="slider_button reversed">
-						<svg width="14" height="6" viewBox="0 0 14 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="currentColor" />
-						</svg>
-					</button>
+					<div class="control_buttons">
+						<button class="slider_button">
+							<svg width="14" height="6" viewBox="0 0 14 6" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="currentColor" />
+							</svg>
+						</button>
+						<button class="slider_button reversed">
+							<svg width="14" height="6" viewBox="0 0 14 6" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path d="M14 2V4H3V6L0 3L3 0V2H14Z" fill="currentColor" />
+							</svg>
+						</button>
+					</div>
 				</div>
 				<div class="pets_button_wrapper">
 					<a href="#" class="btn-primary">Get to know the rest</a>
@@ -206,6 +232,32 @@
 			</div>
 		</div>
 	</footer>
+
+	<div id="modal_pets" class="modal_pets">
+		<div class="wrapper">
+			<img src="../../assets/images/pets-jennifer.png" alt="Dog">
+			<div class="modal_pets_content">
+				<h3>Jennifer</h3>
+				<h4>Dog - Labrador</h4>
+				<p>Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This
+					girl
+					really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the
+					house if she has all of her favorite toys.</p>
+				<ul>
+					<li>Age: 2 months</li>
+					<li>Inoculations: none</li>
+					<li>Diseases: none</li>
+					<li>Parasites: none</li>
+				</ul>
+			</div>
+			<span data-close-button class="modal_close">Закрыть</span>
+		</div>
+	</div>
+
+	<div class="blackout"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+	<script src="app.js"></script>
 </body>
 
 </html>
