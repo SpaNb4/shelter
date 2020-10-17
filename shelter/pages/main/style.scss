@@ -74,6 +74,17 @@ $color-dark-3xl: #292929;
     letter-spacing: 0.09rem;
 }
 
+@mixin h5-modal-window {
+    font: {
+        family: Georgia;
+        size: 1.5rem;
+        style: normal;
+        weight: bold;
+    }
+    line-height: 110%;
+    letter-spacing: 0.09rem;
+}
+
 @mixin paragraph-l {
     font: {
         family: Arial;
@@ -92,6 +103,16 @@ $color-dark-3xl: #292929;
         weight: normal;
     }
     line-height: 150%;
+}
+
+@mixin paragraph-mobile-menu {
+    font: {
+        family: Arial;
+        size: 3.2rem;
+        style: normal;
+        weight: normal;
+    }
+    line-height: 160%;
 }
 
 @mixin logo_title {
@@ -114,16 +135,6 @@ $color-dark-3xl: #292929;
     }
     line-height: 116%;
     letter-spacing: 0.13rem;
-}
-
-@mixin paragraph-mobile-menu {
-    font: {
-        family: Arial;
-        size: 3.2rem;
-        style: normal;
-        weight: normal;
-    }
-    line-height: 160%;
 }
 
 @mixin start-screen-gradient-background {
@@ -617,45 +628,68 @@ body {
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
     z-index: 1;
+    border-radius: 0.9rem 0px 0px 0.9rem;
     background-color: $color-light-s;
     max-width: 80%;
     width: 900px;
     .wrapper {
-        display: flex;
+        padding: 0;
     }
     &.active {
         transform: translate(-50%, -50%) scale(1);
     }
+    img {
+        width: 500px;
+    }
+    .modal_pets_content {
+        max-width: 35rem;
+        margin-left: 3rem;
+        h3 {
+            @include h3;
+            margin-top: 5rem;
+            margin-bottom: 1rem;
+        }
+        h4 {
+            @include h4;
+            margin-top: 0;
+            margin-bottom: 4rem;
+        }
+        p {
+            @include h5;
+            line-height: 115%;
+            margin-bottom: 4rem;
+        }
+        ul {
+            @include h5;
+            letter-spacing: 0.15rem;
+            list-style-type: none;
+            li {
+                margin-bottom: 1.2rem;
+                span {
+                    @include h5-modal-window;
+                    letter-spacing: 0.15rem;
+                }
+                &::before {
+                    content: "\2022";
+                    color: $color-primary-color;
+                    font-weight: bold;
+                    display: inline-block;
+                    width: 1.5rem;
+                }
+            }
+        }
+    }
 }
 
 .modal_close {
-    width: 22px;
-    height: 22px;
-    font-size: 0;
-    border: 0;
+    @include slider_button;
     cursor: pointer;
     position: absolute;
-    top: 0;
-    right: -34px;
-    &::before {
-        content: "";
-        position: absolute;
-        top: 10px;
-        left: 2px;
-        width: 19px;
-        height: 3px;
-        background-color: #d0d0d0;
-        transform: rotate(45deg);
-    }
-    &::after {
-        content: "";
-        position: absolute;
-        top: 10px;
-        left: 2px;
-        width: 19px;
-        height: 3px;
-        background-color: #d0d0d0;
-        transform: rotate(-45deg);
+    top: -52px;
+    right: -43px;
+    &.hover {
+        background: $color-primary-light;
+        border-color: $color-primary-light;
     }
 }
 
@@ -807,22 +841,23 @@ body {
         background-size: 3rem 3rem;
         margin-top: 15px;
         margin-right: 43px;
+        transition: 1s;
     }
     .menu_close {
         transform: rotate(90deg);
-        transition: 3.5s;
+        transition: 1s;
     }
     .menu_popup {
-        display: none;
+        transition: 0.5s;
         background: $color-dark-3xl;
-        width: 320px;
+        width: 0;
         height: 100%;
         position: fixed;
         right: 0;
         top: 0;
         z-index: 1;
         &.active {
-            display: block;
+            width: 32rem;
         }
         .menu_popup_logo {
             display: flex;

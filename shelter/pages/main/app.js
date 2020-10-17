@@ -22,12 +22,15 @@ document.addEventListener("DOMContentLoaded", () => {
         blackout.classList.toggle('active');
         menu_popup.classList.toggle('active');
         menu_close.classList.toggle('menu_close');
+        menu_trigger.classList.toggle('menu_close');
     }, false);
 
     menu_close.addEventListener('click', () => {
         logo.style.visibility = 'visible';
         blackout.classList.toggle('active');
         menu_popup.classList.toggle('active');
+        menu_close.classList.toggle('menu_close');
+        menu_trigger.classList.toggle('menu_close');
     }, false);
 
     [].forEach.call(pets_items, function (pets_item) {
@@ -44,33 +47,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
     blackout.addEventListener('click', () => {
         modal_pets.classList.remove('active');
+        menu_popup.classList.toggle('active');
         blackout.classList.toggle('active');
     }, false);
 
+    blackout.addEventListener('mouseover', () => {
+        modal_close.classList.add('hover');
+    }, false);
 
-    let slider = tns({
-        container: '.pets_items',
-        items: 3,
-        slideBy: 1,
-        fixedWidth: 355,
-        controlsContainer: '.control_buttons',
-        nav: false,
-        mouseDrag: true,
-        // responsive: {
-        //     320: {
-        //         items: 1,
-        //         fixedWidth: 270,
-        //     },
-        //     768: {
-        //         items: 2,
-        //         fixedWidth: 315, 
-        //     },
-        //     1280: {
-        //         items: 3,
-        //         fixedWidth: 355,
-        //     }, 
-        // }
-    });
+    blackout.addEventListener('mouseout', () => {
+        modal_close.classList.remove('hover');
+    }, false);
+
+
+let slider = tns({
+    container: '.pets_items',
+    items: 3,
+    slideBy: 1,
+    fixedWidth: 355,
+    controlsContainer: '.control_buttons',
+    nav: false,
+    mouseDrag: true,
+    // responsive: {
+    //     320: {
+    //         items: 1,
+    //         fixedWidth: 270,
+    //     },
+    //     768: {
+    //         items: 2,
+    //         fixedWidth: 315, 
+    //     },
+    //     1280: {
+    //         items: 3,
+    //         fixedWidth: 355,
+    //     }, 
+    // }
+});
 
 
 });
