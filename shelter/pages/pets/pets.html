@@ -7,6 +7,7 @@
 	<title>Shelter</title>
 	<link rel="stylesheet" href="../main/style.css">
 	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
 	<link rel="apple-touch-icon" sizes="180x180" href="/assets/static/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon-16x16.png">
@@ -17,21 +18,27 @@
 </head>
 
 <body>
-	<div class="start_screen out_pets_header">
+	<div class="start_screen our_pets_header">
 		<div class="wrapper">
 			<header class="header">
-				<div class="logo_wrap">
+				<div id="logo" class="logo_wrap">
 					<h1 class="logo_title">Cozy House</h1>
 					<h3 class="logo_subtitle">Shelter for pets in Boston</h3>
 				</div>
-				<a class="menu-triger" href="#"></a>
-				<nav class="top_menu menu-popup">
-					<a class="menu-close" href="#"></a>
+				<a id="menu_trigger" class="menu_trigger" href="#"></a>
+				<nav id="menu_popup" class="top_menu menu_popup">
+					<div class="menu_popup_logo">
+						<div class="logo_wrap">
+							<h1 class="logo_title">Cozy House</h1>
+							<h3 class="logo_subtitle">Shelter for pets in Boston</h3>
+						</div>
+						<a id="menu_close" class="menu_trigger" href="#"></a>
+					</div>
 					<ul>
 						<li><a href="../main/index.html">About the shelter</a></li>
-						<li><a href="pets.html" class="active">Our pets</a></li>
-						<li><a href="#">Help the shelter</a></li>
-						<li><a href="#">Contacts</a></li>
+						<li><a href="../pets/pets.html" class="active">Our pets</a></li>
+						<li><a href="javascript:void(0)">Help the shelter</a></li>
+						<li><a href="javascript:void(0)">Contacts</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -124,6 +131,36 @@
 		</div>
 	</footer>
 
+	<div id="modal_pets" class="modal_pets">
+		<div class="wrapper">
+			<img src="../../assets/images/pets-jennifer.png" alt="Dog">
+			<div class="modal_pets_content">
+				<h3>Jennifer</h3>
+				<h4>Dog - Labrador</h4>
+				<p>Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This
+					girl
+					really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the
+					house if she has all of her favorite toys.</p>
+				<ul>
+					<li><span>Age:</span> 2 months</li>
+					<li><span>Inoculations:</span> none</li>
+					<li><span>Diseases:</span> none</li>
+					<li><span>Parasites:</span> none</li>
+				</ul>
+			</div>
+			<button data-close-button class="modal_close slider_button">
+				<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M7.42618 6.00003L11.7046 1.72158C12.0985 1.32775 12.0985 0.689213 11.7046 0.295433C11.3108 -0.0984027 10.6723 -0.0984027 10.2785 0.295433L5.99998 4.57394L1.72148 0.295377C1.32765 -0.098459 0.68917 -0.098459 0.295334 0.295377C-0.0984448 0.689213 -0.0984448 1.32775 0.295334 1.72153L4.57383 5.99997L0.295334 10.2785C-0.0984448 10.6723 -0.0984448 11.3108 0.295334 11.7046C0.68917 12.0985 1.32765 12.0985 1.72148 11.7046L5.99998 7.42612L10.2785 11.7046C10.6723 12.0985 11.3108 12.0985 11.7046 11.7046C12.0985 11.3108 12.0985 10.6723 11.7046 10.2785L7.42618 6.00003Z"
+						fill="#292929" />
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<div class="blackout"></div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
 	<script src="../main/app.js"></script>
 </body>
 

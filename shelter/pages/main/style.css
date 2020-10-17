@@ -239,7 +239,7 @@ body {
   height: 5.2rem;
   background: none;
   position: absolute;
-  top: 22.6rem;
+  top: 22.7rem;
 }
 .pets .wrapper .pets_content .pets_carousel .slider_button:hover {
   background: #fddcc4;
@@ -255,13 +255,17 @@ body {
   left: 95.7%;
 }
 .pets .wrapper .pets_content .pets_carousel .tns-outer {
-  padding: 0 7.5rem !important;
+  max-width: 120rem;
+  padding: 0 10.5rem !important;
   margin: 0 auto;
+}
+.pets .wrapper .pets_content .pets_carousel #tns1 > .tns-item {
+  margin-right: 9rem;
+  padding-right: 0;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items {
   display: flex;
   justify-content: center;
-  column-gap: 9rem;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item {
   display: flex;
@@ -274,7 +278,7 @@ body {
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item:hover {
   background: #ffffff;
   cursor: pointer;
-  box-shadow: 0px 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
+  box-shadow: 0rem 0.2rem 3.5rem 1.4rem #0d0d0d;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_names {
   font-family: Georgia;
@@ -478,23 +482,24 @@ body {
 }
 
 /* pets.html */
-.out_pets_header {
+.our_pets_header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 1;
   background: #ffffff;
 }
-.out_pets_header .wrapper .header {
+.our_pets_header .wrapper .header {
   margin-bottom: 3rem;
   margin-top: 3rem;
 }
-.out_pets_header .wrapper .header .logo_wrap .logo_title {
+.our_pets_header .wrapper .header .logo_wrap .logo_title {
   color: #545454;
 }
-.out_pets_header .wrapper .header .logo_wrap .logo_subtitle {
+.our_pets_header .wrapper .header .logo_wrap .logo_subtitle {
   color: #292929;
 }
-.out_pets_header .wrapper .header .top_menu ul li a {
+.our_pets_header .wrapper .header .top_menu ul li a {
   color: #545454;
 }
 
@@ -569,10 +574,10 @@ body {
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
   z-index: 1;
-  border-radius: 0.9rem 0px 0px 0.9rem;
+  border-radius: 0.9rem 0rem 0rem 0.9rem;
   background-color: #fafafa;
   max-width: 80%;
-  width: 900px;
+  width: 90rem;
 }
 .modal_pets .wrapper {
   padding: 0;
@@ -581,7 +586,7 @@ body {
   transform: translate(-50%, -50%) scale(1);
 }
 .modal_pets img {
-  width: 500px;
+  width: 50rem;
 }
 .modal_pets .modal_pets_content {
   max-width: 35rem;
@@ -659,8 +664,8 @@ body {
   background: none;
   cursor: pointer;
   position: absolute;
-  top: -52px;
-  right: -43px;
+  top: -5.2rem;
+  right: -4.3rem;
 }
 .modal_close:hover {
   background: #fddcc4;
@@ -819,8 +824,11 @@ body {
     margin-top: 3rem;
   }
 
-  .out_pets_header .wrapper .header .top_menu ul li a {
+  .our_pets_header .wrapper .header .top_menu ul li a {
     color: #cdcdcd;
+  }
+  .our_pets_header .wrapper .header .menu_trigger {
+    filter: brightness(0%);
   }
 
   .start_screen .wrapper .top_menu ul {
