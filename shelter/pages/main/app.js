@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let pets_header = document.querySelector('.our_pets_header');
 
+    //let pets_items_div = document.querySelector('.pets_items');
+    let pets_pagination_div = document.querySelector('.pets_pagination');
+
     menu_trigger.addEventListener('click', () => {
         logo.classList.toggle('hidden');
         blackout.classList.toggle('active');
@@ -59,84 +62,119 @@ document.addEventListener("DOMContentLoaded", () => {
     }, false);
 
     let slice_n = 0;
+    let json;
+    let pets_pagination;
+    let timeOutFunctionId;
+
+    window.addEventListener('resize', function () {
+        clearTimeout(timeOutFunctionId);
+        timeOutFunctionId = setTimeout(resizePetItem, 500);
+    });
+    window.addEventListener('DOMContentLoaded', resizePetItem);
+
+    function resizePetItem() {
+        if (window.screen.width <= 629) {
+            console.log('<629')
+            slice_n = 5;
+            deletePetItem();
+            generatePetItem(json);
+            pets_pagination = pets_pagination.rebuild();
+        }
+        else if (window.screen.width <= 1200) {
+            console.log('<1200')
+            slice_n = 2;
+            deletePetItem();
+            generatePetItem(json);
+            pets_pagination = pets_pagination.rebuild();
+        }
+        else if (window.screen.width > 1280) {
+            slice_n = 0;
+        }
+    }
+
+    function deletePetItem() {
+        let tns_item = document.querySelectorAll('.tns-item');
+        tns_item.forEach(el => {
+            el.remove();
+        })
+
+    }
 
     function generatePetItem(pets_json) {
         // пагинация
         let pets_obj = pets_json;
         let pets_obj_arr = [];
         let arr_length = 48 / pets_obj.slice(slice_n).length;
-        //let pets_items_div = document.querySelector('.pets_items');
-        let pets_pagination_div = document.querySelector('.pets_pagination');
-
         for (let i = 0; i < arr_length; i++) {
             pets_obj_arr[i] = shuffle(pets_obj.slice(slice_n));
         }
-
         let x = 0;
+        console.log(pets_obj_arr)
+        if (x == 0) {
+            for (let i = 0; i < pets_obj_arr.length; i++) {
+                let page_div = document.createElement('div');
+                page_div.classList.add(`page-${i}`);
 
-        for (let i = 0; i < pets_obj_arr.length; i++) {
-            let page_div = createNode('div');
-            page_div.classList.add(`page-${i}`);
+                let pets_items_div = document.createElement('div');
+                pets_items_div.classList.add('pets_items');
 
-            let pets_items_div = createNode('div');
-            pets_items_div.classList.add('pets_items');
+                pets_obj_arr[i].map(function (pet) {
+                    let pets_item_div = document.createElement('div');
+                    pets_item_div.classList.add('pets_item');
 
-            pets_obj_arr[i].map(function (pet) {
-                let pets_item_div = createNode('div');
-                pets_item_div.classList.add('pets_item');
+                    let pets_item_img = document.createElement('img');
+                    pets_item_img.src = pet.img;
 
-                let pets_item_img = createNode('img');
-                pets_item_img.src = pet.img;
+                    let pets_names_div = document.createElement('div');
+                    pets_names_div.classList.add('pets_names');
+                    pets_names_div.innerHTML = `${pet.name}`;
 
-                let pets_names_div = createNode('div');
-                pets_names_div.classList.add('pets_names');
-                pets_names_div.innerHTML = `${pet.name}`;
+                    let pets_button = document.createElement('a');
+                    pets_button.classList.add('btn-secondary');
+                    pets_button.innerHTML = 'Learn more';
+                    pets_button.href = '#';
 
-                let pets_button = createNode('a');
-                pets_button.classList.add('btn-secondary');
-                pets_button.innerHTML = 'Learn more';
-                pets_button.href = '#';
-
-                append(pets_item_div, pets_item_img);
-                append(pets_item_div, pets_names_div);
-                append(pets_item_div, pets_button);
-                append(pets_items_div, pets_item_div);
-            })
-            append(page_div, pets_items_div);
-            append(pets_pagination_div, page_div);
+                    pets_item_div.appendChild(pets_item_img);
+                    pets_item_div.appendChild(pets_names_div);
+                    pets_item_div.appendChild(pets_button);
+                    pets_items_div.appendChild(pets_item_div);
+                })
+                page_div.appendChild(pets_items_div);
+                pets_pagination_div.appendChild(page_div);
+            }
         }
 
         // слайдер на главной странице
         // else {
         //     pets_obj.map(function (pet) {
-        //         let pets_item_div = createNode('div');
+        //         let pets_item_div = document.createElement('div');
         //         pets_item_div.classList.add('pets_item');
 
-        //         let pets_item_img = createNode('img');
+        //         let pets_item_img = document.createElement('img');
         //         pets_item_img.src = pet.img;
 
-        //         let pets_names_div = createNode('div');
+        //         let pets_names_div = document.createElement('div');
         //         pets_names_div.classList.add('pets_names');
         //         pets_names_div.innerHTML = `${pet.name}`;
 
-        //         let pets_button = createNode('a');
+        //         let pets_button = document.createElement('a');
         //         pets_button.classList.add('btn-secondary');
         //         pets_button.innerHTML = 'Learn more';
         //         pets_button.href = '#';
 
-        //         append(pets_item_div, pets_item_img);
-        //         append(pets_item_div, pets_names_div);
-        //         append(pets_item_div, pets_button);
-        //         append(pets_items_div, pets_item_div);
+        //         pets_item_div.appendChild(pets_item_img);
+        //         pets_item_div.appendChild(pets_names_div);
+        //         pets_item_div.appendChild(pets_button);
+        //         pets_items_div.appendChild(pets_item_div);
         //     })
         // }
-
         return arr_length;
     }
 
     fetch('../../assets/json/pets.json')
         .then(response => response.json())
         .then(pets_json => {
+            json = pets_json;
             generatePetItem(pets_json);
         })
         .then((arr_length) => {
@@ -161,43 +199,13 @@ document.addEventListener("DOMContentLoaded", () => {
             //     }
             // });
 
-            let pets_pagination = tns({
+            pets_pagination = tns({
                 container: '.pets_pagination',
                 nav: false,
                 controls: false,
                 loop: false,
                 mouseDrag: true,
             });
-
-            window.addEventListener('DOMContentLoaded', () => {
-                if (window.screen.width > 1280) {
-                    slice_n = 0;
-                }
-                if (window.screen.width <= 1280) {
-                    slice_n = 2;
-                }
-                if (window.screen.width <= 629) {
-                    slice_n = 5;
-                }
-            })
-
-            function resize() {
-                if (window.screen.width > 1280) {
-                    slice_n = 0;
-                    pets_pagination.destroy();
-                    pets_pagination = pets_pagination.rebuild();
-                }
-                if (window.screen.width <= 1280) {
-                    slice_n = 2;
-                    pets_pagination.destroy();
-                    pets_pagination = pets_pagination.rebuild();
-                }
-                if (window.screen.width <= 629) {
-                    slice_n = 5;
-                }
-            }
-
-            window.addEventListener('resize', resize());
 
             let next_button = document.querySelector('.next_button');
             let prev_button = document.querySelector('.prev_button');
@@ -255,14 +263,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, false);
             });
         });
-
-    function createNode(element) {
-        return document.createElement(element);
-    }
-
-    function append(parent, el) {
-        return parent.appendChild(el);
-    }
 
     function shuffle(array) {
         let arr = array.slice();;
