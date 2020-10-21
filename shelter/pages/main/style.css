@@ -133,7 +133,7 @@ body {
 }
 .start_screen .wrapper .top_menu ul li a.active {
   border-bottom: 0.3rem solid #f1cdb3;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.4rem;
 }
 .start_screen .wrapper .top_menu ul li:last-child {
   padding-right: 0;
@@ -226,9 +226,15 @@ body {
 }
 .pets .wrapper .pets_content .pets_carousel {
   margin-top: 2.5rem;
-  position: relative;
 }
-.pets .wrapper .pets_content .pets_carousel .slider_button {
+.pets .wrapper .pets_content .pets_carousel .control_buttons {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  top: -27.8rem;
+  outline: none;
+}
+.pets .wrapper .pets_content .pets_carousel .control_buttons .slider_button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,21 +244,18 @@ body {
   width: 5.2rem;
   height: 5.2rem;
   background: none;
-  position: absolute;
-  top: 22.7rem;
 }
-.pets .wrapper .pets_content .pets_carousel .slider_button:hover {
+.pets .wrapper .pets_content .pets_carousel .control_buttons .slider_button:hover {
   background: #fddcc4;
   border-color: #fddcc4;
 }
-.pets .wrapper .pets_content .pets_carousel .slider_button:disabled {
+.pets .wrapper .pets_content .pets_carousel .control_buttons .slider_button:disabled {
   background: none;
   border-color: #cdcdcd;
   color: #cdcdcd;
 }
-.pets .wrapper .pets_content .pets_carousel .slider_button.reversed {
+.pets .wrapper .pets_content .pets_carousel .control_buttons .slider_button.reversed {
   transform: rotate(180deg);
-  left: 95.7%;
 }
 .pets .wrapper .pets_content .pets_carousel .tns-outer {
   max-width: 120rem;
@@ -266,19 +269,19 @@ body {
 .pets .wrapper .pets_content .pets_carousel .pets_items {
   display: flex;
   justify-content: center;
+  margin-top: 3.5rem;
+  margin-bottom: 3.5rem;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item {
   display: flex;
   flex-direction: column;
   background: #fafafa;
   border-radius: 0.9rem;
-  margin-top: 3.5rem;
-  margin-bottom: 3.5rem;
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_item:hover {
   background: #ffffff;
   cursor: pointer;
-  box-shadow: 0rem 0.2rem 3.5rem 1.4rem #0d0d0d;
+  box-shadow: 0rem 0.2rem 3.5rem 1.4rem rgba(13, 13, 13, 0.04);
 }
 .pets .wrapper .pets_content .pets_carousel .pets_items .pets_names {
   font-family: Georgia;
@@ -297,8 +300,8 @@ body {
   margin-bottom: 3rem;
 }
 .pets .wrapper .pets_content .pets_button_wrapper {
+  margin-top: -2.7rem;
   text-align: center;
-  margin-top: 2.5rem;
 }
 
 .help .wrapper {
@@ -503,6 +506,21 @@ body {
   color: #545454;
 }
 
+.pets .wrapper.pets_pages {
+  padding: 0;
+}
+.pets .wrapper.pets_pages .pets_content .pets_carousel {
+  margin-top: 6rem;
+}
+.pets .wrapper.pets_pages .pets_content .pets_carousel .tns-outer {
+  max-width: initial;
+  padding: 0 0rem !important;
+  margin: 0 auto;
+}
+.pets .wrapper.pets_pages .pets_content .pets_carousel #tns1 > .tns-item {
+  margin-right: 0rem;
+  padding-right: 0;
+}
 .pets .wrapper.pets_pages .pets_content .pets_carousel .pets_items {
   column-gap: 4rem;
   row-gap: 3rem;
@@ -513,6 +531,8 @@ body {
   justify-content: center;
   column-gap: 2rem;
   margin-top: 6rem;
+  margin-bottom: 10rem;
+  outline: none;
 }
 .pets .wrapper.pets_pages .pets_content .pets_navigation .slider_button {
   display: flex;
@@ -685,6 +705,10 @@ body {
   display: none;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /* media query */
 @media only screen and (max-width: 1279px) {
   .wrapper {
@@ -733,11 +757,12 @@ body {
   .pets .wrapper {
     padding: 8rem 3rem 10rem 3rem;
   }
-  .pets .wrapper .pets_content .pets_carousel .pets_items {
-    column-gap: 4rem;
-  }
   .pets .wrapper .pets_content .pets_carousel .tns-outer {
-    max-width: 67.5rem;
+    max-width: 70.8rem;
+    padding: 0 6.4rem !important;
+  }
+  .pets .wrapper .pets_content .pets_carousel #tns1 > .tns-item {
+    margin-right: 4rem;
   }
 
   .pets .wrapper.pets_pages {
@@ -745,6 +770,9 @@ body {
   }
   .pets .wrapper.pets_pages .pets_content .pets_carousel {
     margin-top: 3rem;
+  }
+  .pets .wrapper.pets_pages .pets_content .pets_carousel .pets_items {
+    margin-top: 2.5rem;
   }
   .pets .wrapper.pets_pages .pets_content .pets_navigation {
     margin-top: 4rem;
@@ -919,14 +947,24 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 4.2rem;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
-  .pets .wrapper .pets_content .pets_carousel .slider_button {
-    order: 3;
-    margin-top: 2rem;
+  .pets .wrapper .pets_content .pets_carousel .pets_items {
+    margin-top: 0rem;
+  }
+  .pets .wrapper .pets_content .pets_carousel .control_buttons {
+    justify-content: space-around;
+    top: -1.5rem;
+  }
+  .pets .wrapper .pets_content .pets_carousel #tns1 > .tns-item {
+    margin-right: 0rem;
+  }
+  .pets .wrapper .pets_content .pets_carousel .tns-outer {
+    max-width: 27rem;
+    padding: 0 !important;
   }
   .pets .wrapper .pets_content .pets_button_wrapper {
-    margin-top: 4.2rem;
+    margin-top: 2.7rem;
   }
 
   .pets .wrapper.pets_pages {
@@ -999,14 +1037,10 @@ body {
     margin: 0 auto;
   }
   .donation .wrapper .donation_content .donation_description h5 {
-    font-family: Arial;
-    font-size: 1.5rem;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 160%;
     text-align: center;
     letter-spacing: 0;
-    margin-top: 2rem;
+    margin-top: 2.3rem;
+    margin-bottom: 2.5rem;
   }
   .donation .wrapper .donation_content .donation_description .credit_card {
     font-family: Georgia;
