@@ -199,6 +199,10 @@ $color-dark-3xl: #292929;
 .btn-secondary {
     @include btn;
     background: none;
+    &.hover {
+        background: #fddcc4;
+        border-color: #fddcc4;
+    }
 }
 
 @mixin font($fname, $fstyle, $fweight, $furl) {
@@ -347,31 +351,10 @@ body {
             }
             .pets_carousel {
                 margin-top: 2.5rem;
-                .control_buttons {
-                    display: flex;
-                    position: relative;
-                    justify-content: space-between;
-                    top: -27.8rem;
-                    outline: none;
-                    .slider_button {
-                        @include slider_button;
-                        &.reversed {
-                            transform: rotate(180deg);
-                        }
-                    }
-                }
-                .tns-outer {
-                    max-width: 120rem;
-                    padding: 0 10.5rem !important;
-                    margin: 0 auto;
-                }
-                #tns1 > .tns-item {
-                    margin-right: 9rem;
-                    padding-right: 0;
-                }
                 .pets_items {
                     display: flex;
                     justify-content: center;
+                    column-gap: 9rem;
                     margin-top: 3.5rem;
                     margin-bottom: 3.5rem;
                     .pets_item {
@@ -398,8 +381,21 @@ body {
                     }
                 }
             }
+            .control_buttons {
+                position: relative;
+                top: -27.8rem;
+                outline: none;
+                .slider_button {
+                    @include slider_button;
+                    position: absolute;
+                    &.reversed {
+                        transform: rotate(180deg);
+                        right: 0;
+                    }
+                }
+            }
             .pets_button_wrapper {
-                margin-top: -2.7rem;
+                margin-top: 2.5rem;
                 text-align: center;
             }
         }
@@ -569,6 +565,9 @@ body {
                     li {
                         a {
                             color: $color-dark-l;
+                            &:hover {
+                                color: $color-dark-3xl;
+                            }
                         }
                     }
                 }
@@ -579,19 +578,9 @@ body {
 
 .pets {
     .wrapper.pets_pages {
-        padding: 0;
+        padding: 8rem 0rem 10rem 0rem;
         .pets_content {
             .pets_carousel {
-                margin-top: 6rem;
-                .tns-outer {
-                    max-width: initial;
-                    padding: 0 0rem !important;
-                    margin: 0 auto;
-                }
-                #tns1 > .tns-item {
-                    margin-right: 0rem;
-                    padding-right: 0;
-                }
                 .pets_items {
                     column-gap: 4rem;
                     row-gap: 3rem;
@@ -602,8 +591,7 @@ body {
                 display: flex;
                 justify-content: center;
                 column-gap: 2rem;
-                margin-top: 6rem;
-                margin-bottom: 10rem;
+                margin-top: 2.5rem;
                 outline: none;
                 .slider_button {
                     @include slider_button;
@@ -775,12 +763,11 @@ body {
             padding: 8rem 3rem 10rem 3rem;
             .pets_content {
                 .pets_carousel {
-                    .tns-outer {
-                        max-width: 70.8rem;
-                        padding: 0 6.4rem !important;
-                    }
-                    #tns1 > .tns-item {
-                        margin-right: 4rem;
+                    .pets_items {
+                        column-gap: 4rem;
+                        .pets_item:nth-last-child(-n + 1) {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -792,13 +779,16 @@ body {
             padding: 8rem 4rem 7.6rem 4rem;
             .pets_content {
                 .pets_carousel {
-                    margin-top: 3rem;
+                    margin-top: 0.5rem;
                     .pets_items {
                         margin-top: 2.5rem;
+                        .pets_item:nth-last-child(-n + 2) {
+                            display: none;
+                        }
                     }
                 }
                 .pets_navigation {
-                    margin-top: 4rem;
+                    margin-top: 0.5rem;
                 }
             }
         }
@@ -892,6 +882,38 @@ body {
         .menu_trigger {
             filter: brightness(0%);
         }
+        .menu_popup {
+            .menu_popup_logo {
+                .logo_wrap {
+                    .logo_title {
+                        font-family: Georgia;
+                        font-size: 3.2rem;
+                        font-style: normal;
+                        font-weight: normal;
+                        line-height: 110%;
+                        letter-spacing: 0.192rem;
+                        margin: 0;
+                        color: #f1cdb3;
+                        text-decoration: none;
+                    }
+                    .logo_subtitle {
+                        font-family: Arial;
+                        font-size: 1.3rem;
+                        font-style: normal;
+                        font-weight: normal;
+                        line-height: 116%;
+                        letter-spacing: 0.13rem;
+                        color: #ffffff;
+                        margin-top: 1rem;
+                        margin-bottom: 0;
+                        text-align: center;
+                    }
+                }
+                .menu_close {
+                    filter: brightness(100%);
+                }
+            }
+        }
     }
     .start_screen {
         .wrapper {
@@ -972,21 +994,22 @@ body {
                     padding: 0 1.5rem;
                     .pets_items {
                         margin-top: 0rem;
+                        .pets_item:nth-last-child(-n + 2) {
+                            display: none;
+                        }
                     }
-                    .control_buttons {
-                        justify-content: space-around;
-                        top: -1.5rem;
-                    }
-                    #tns1 > .tns-item {
-                        margin-right: 0rem;
-                    }
-                    .tns-outer {
-                        max-width: 27rem;
-                        padding: 0 !important;
+                }
+                .control_buttons {
+                    top: -1.5rem;
+                    .slider_button {
+                        left: 5.8rem;
+                        &.reversed {
+                            left: 19rem;
+                        }
                     }
                 }
                 .pets_button_wrapper {
-                    margin-top: 2.7rem;
+                    margin-top: 7.9rem;
                 }
             }
         }
@@ -998,10 +1021,16 @@ body {
             .pets_content {
                 .pets_carousel {
                     margin-top: 4.2rem;
+                    .pets_items {
+                        margin-top: 0rem;
+                        .pets_item:nth-last-child(-n + 5) {
+                            display: none;
+                        }
+                    }
                 }
                 .pets_navigation {
                     column-gap: 1rem;
-                    margin-top: 4.2rem;
+                    margin-top: 0.7rem;
                 }
             }
         }
