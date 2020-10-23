@@ -112,6 +112,10 @@ body {
           justify-content: space-between;
 }
 
+.start_screen .wrapper .logo_wrap {
+  cursor: pointer;
+}
+
 .start_screen .wrapper .logo_wrap .logo_title {
   font-family: Georgia;
   font-size: 3.2rem;
@@ -166,6 +170,10 @@ body {
 
 .start_screen .wrapper .top_menu ul li a:hover {
   color: #fafafa;
+}
+
+.start_screen .wrapper .top_menu ul li a.inactive:hover {
+  color: #cdcdcd;
 }
 
 .start_screen .wrapper .top_menu ul li a.active {
@@ -604,8 +612,8 @@ body {
 }
 
 .footer .wrapper .footer_content .footer_location h3 {
-  margin-bottom: 3.3rem;
   max-width: 27rem;
+  margin-bottom: 3.3rem;
 }
 
 .footer .wrapper .footer_content .footer_location .address {
@@ -617,7 +625,6 @@ body {
           align-items: center;
   gap: 2rem;
   margin-bottom: 3.3rem;
-  max-width: 30rem;
 }
 
 .footer .wrapper .footer_content > img {
@@ -652,6 +659,10 @@ body {
 
 .our_pets_header .wrapper .header .top_menu ul li a:hover {
   color: #292929;
+}
+
+.our_pets_header .wrapper .header .top_menu ul li a.inactive:hover {
+  color: #545454;
 }
 
 .pets .wrapper.pets_pages {
@@ -951,6 +962,9 @@ body {
     -webkit-column-gap: 4rem;
             column-gap: 4rem;
   }
+  .pets .wrapper .pets_content .pets_carousel.pets_main .pets_item:nth-last-child(-n + 1) {
+    display: none;
+  }
   .pets .wrapper.pets_pages {
     padding: 8rem 4rem 7.6rem 4rem;
   }
@@ -1178,17 +1192,23 @@ body {
   .pets .wrapper .pets_content .pets_carousel .pets_items {
     margin-top: 0rem;
   }
+  .pets .wrapper .pets_content .pets_carousel.pets_main .pets_item:nth-last-child(-n + 2) {
+    display: none;
+  }
   .pets .wrapper .pets_content .control_buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     top: -1.5rem;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    padding: 0 1.8rem;
   }
   .pets .wrapper .pets_content .control_buttons .slider_button {
-    left: 5.8rem;
-  }
-  .pets .wrapper .pets_content .control_buttons .slider_button.reversed {
-    left: 19rem;
+    position: relative;
   }
   .pets .wrapper .pets_content .pets_button_wrapper {
-    margin-top: 7.9rem;
+    margin-top: 2.7rem;
   }
   .pets .wrapper.pets_pages {
     padding: 4.2rem 1rem;
@@ -1304,7 +1324,7 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
   }
   .footer .wrapper .footer_content .footer_location h3 {
     font-family: Georgia;
@@ -1316,10 +1336,10 @@ body {
     font-size: 2.5rem;
     letter-spacing: 0.15rem;
     text-align: center;
-    margin-top: 4rem;
-    max-width: 29rem;
-    margin: 0 auto;
+    max-width: 29.4rem;
     margin-bottom: 4rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
   }
   .footer .wrapper .footer_content .footer_location .address {
     margin-bottom: 4rem;

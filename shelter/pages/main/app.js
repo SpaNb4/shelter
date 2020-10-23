@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // меню
     let menu_popup = document.querySelector('#menu_popup');
     let logo = document.querySelector('#logo');
+    let logo_wrap = document.querySelectorAll('.logo_wrap');
     // кнопка закрытия меню
     let menu_close = document.querySelector('#menu_close');
     // затенение
@@ -16,12 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let pets_header = document.querySelector('.our_pets_header');
 
+    logo_wrap.forEach((el) => {
+        el.addEventListener('click', () => {
+            location.href = '../main/index.html';
+        });
+    });
+
     menu_trigger.addEventListener('click', () => {
         logo.classList.toggle('hidden');
         blackout.classList.toggle('active');
         menu_popup.classList.toggle('active');
         menu_close.classList.toggle('menu_close');
         menu_trigger.classList.toggle('menu_close');
+        document.body.style.overflow = 'hidden';
 
         pets_header.style.cssText = 'position: initial';
     });
@@ -32,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menu_popup.classList.toggle('active');
         menu_close.classList.toggle('menu_close');
         menu_trigger.classList.toggle('menu_close');
+        document.body.style.overflow = 'initial';
 
         pets_header.style.cssText = 'position: sticky';
     });
@@ -109,11 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function deletePetItem() {
         let tns_outer = document.querySelector('.tns-outer');
         tns_outer.remove();
-    }
-
-    function randomPet(pets_json, size) {
-        deletePetItem();
-        generatePetItem(pets_json, size);
     }
 
     function generatePetItem(pets_json, size) {
@@ -233,11 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
             pets_pagination.events.on('indexChanged', () => {
                 let index = pets_pagination.getInfo().index;
                 page.textContent = index + 1;
-                if (index == arr_length - 1) {
+                let pages = 48 / size;
+                if (index == pages - 1) {
                     next_button.disabled = true;
                     last_button.disabled = true;
                 }
-                if (index < arr_length - 1) {
+                if (index < pages - 1) {
                     next_button.disabled = false;
                     last_button.disabled = false;
                 }
@@ -250,43 +255,143 @@ document.addEventListener('DOMContentLoaded', () => {
                     first_button.disabled = false;
                 }
             });
+
+            let pets_items = document.querySelector('.pets_slider');
+            pets_items.addEventListener('mouseout', (e) => {
+                if (e.target != pets_items) {
+                    let current_pets_item = e.target.closest('.pets_item');
+                    if (current_pets_item) {
+                        let btn_secondary = current_pets_item.querySelector('.btn-secondary');
+                        btn_secondary.classList.toggle('hover');
+                    }
+                }
+            });
+
+            pets_items.addEventListener('mouseover', (e) => {
+                if (e.target != pets_items) {
+                    let current_pets_item = e.target.closest('.pets_item');
+                    if (current_pets_item) {
+                        let btn_secondary = current_pets_item.querySelector('.btn-secondary');
+                        btn_secondary.classList.toggle('hover');
+                    }
+                }
+            });
         }
 
         //слайдер на главной странице
         else {
-            for (let i = 0; i < 2; i++) {
-                pets_obj_arr[i] = shuffle(pets_obj);
-                pets_obj_arr[i] = pets_obj_arr[i].slice(5);
+            for (let i = 0; i < pets_obj.length * 2; i++) {
+                pets_obj_arr[i] = shuffle(pets_obj).slice(5);
             }
-
             generatePetDOM(pets_obj_arr);
 
             let pets_slider = tns({
                 container: '.pets_slider',
                 nav: false,
+                loop: false,
+                startIndex: 3,
                 controls: false,
-                loop: true,
                 preventActionWhenRunning: true,
             });
 
             let next_button = document.querySelector('.next_button');
             let prev_button = document.querySelector('.prev_button');
 
+            function deleteNextPetItem() {
+                let next_item = document.querySelector('.tns-slide-active').nextSibling.firstChild;
+                next_item.remove();
+                let isNext = true;
+                generatePet(isNext);
+            }
+
+            function deletePrevPetItem() {
+                let prev_item = document.querySelector('.tns-slide-active').previousSibling.firstChild;
+                prev_item.remove();
+                let isNext = false;
+                generatePet(isNext);
+            }
+
+            function generatePet(isNext) {
+                let item;
+                if (isNext) {
+                    item = document.querySelector('.tns-slide-active').nextSibling;
+                } else {
+                    item = document.querySelector('.tns-slide-active').previousSibling;
+                }
+                let pets_items_div = document.createElement('div');
+                pets_items_div.classList.add('pets_items');
+
+                let current_item = document.querySelector('.tns-slide-active').firstChild;
+
+                let pets_obj_rand = {};
+                let isUnique = true;
+                do {
+                    pets_obj_rand = shuffle(pets_obj).slice(5);
+                    isUnique = true;
+                    for (let i = 0; i < pets_obj_rand.length; i++) {
+                        for (let j = 0; j < current_item.childNodes.length; j++) {
+                            // если такое имя есть
+                            if (pets_obj_rand[i].name == current_item.childNodes[j].childNodes[1].innerHTML) {
+                                isUnique = false;
+                            }
+                        }
+                    }
+                } while (isUnique == false);
+
+                pets_obj_rand.map(function (pet) {
+                    let pets_item_div = document.createElement('div');
+                    pets_item_div.classList.add('pets_item');
+
+                    let pets_item_img = document.createElement('img');
+                    pets_item_img.src = pet.img;
+
+                    let pets_names_div = document.createElement('div');
+                    pets_names_div.classList.add('pets_names');
+                    pets_names_div.innerHTML = pet.name;
+
+                    let pets_button = document.createElement('a');
+                    pets_button.classList.add('btn-secondary');
+                    pets_button.innerHTML = 'Learn more';
+                    pets_button.href = '#';
+
+                    pets_item_div.appendChild(pets_item_img);
+                    pets_item_div.appendChild(pets_names_div);
+                    pets_item_div.appendChild(pets_button);
+                    pets_items_div.appendChild(pets_item_div);
+                });
+                item.appendChild(pets_items_div);
+            }
+
             next_button.onclick = function () {
-                randomPet(pets_obj);
-                pets_slider.goTo('prev');
+                deleteNextPetItem();
+                pets_slider.goTo('next');
             };
 
             prev_button.onclick = function () {
-                randomPet(pets_obj);
+                deletePrevPetItem();
                 pets_slider.goTo('prev');
             };
+
+            pets_slider.events.on('indexChanged', () => {
+                function randomInteger(min, max) {
+                    let rand = min + Math.random() * (max + 1 - min);
+                    return Math.floor(rand);
+                }
+                let index = pets_slider.getInfo().index;
+                if (index == 15) {
+                    pets_slider.goTo(randomInteger(3,7));
+                } else if (index == 0) {
+                    pets_slider.goTo(randomInteger(3,7));
+                }
+            });
         }
     }
 
-    function generateModalPets(current_pets_item) {
-        for (let i = 0; i < pets_obj_arr[0].length; i++) {
-            if (pets_obj_arr[0][i].name == current_pets_item.querySelector('.pets_names').textContent) pets_item = pets_obj_arr[0][i];
+    function generateModalPets(pets_json, current_pets_item) {
+        for (let i = 0; i < pets_json.length; i++) {
+            if (pets_json[i].name == current_pets_item.querySelector('.pets_names').textContent) {
+                pets_item = pets_json[i];
+            }
         }
         let modal_pets_img = document.querySelector('.modal_pets img');
         modal_pets_img.src = pets_item.img;
@@ -326,40 +431,25 @@ document.addEventListener('DOMContentLoaded', () => {
                     let size = 3;
                     deletePetItem();
                     generatePetItem(pets_json, size);
-                }
-                else if (window.screen.width <= 1200) {
+                } else if (window.screen.width <= 1200) {
                     let size = 6;
                     deletePetItem();
                     generatePetItem(pets_json, size);
                 }
             }
+
             resizePetItem();
 
-            let pets_items = document.querySelector('.pets_items');
-
-            pets_items.addEventListener('mouseout', (e) => {
-                if (e.target != pets_items) {
-                    let current_pets_item = e.target.closest('.pets_item');
-                    let btn_secondary = current_pets_item.querySelector('.btn-secondary');
-                    btn_secondary.classList.toggle('hover');
-                }
-            });
-
-            pets_items.addEventListener('mouseover', (e) => {
-                if (e.target != pets_items) {
-                    let current_pets_item = e.target.closest('.pets_item');
-                    let btn_secondary = current_pets_item.querySelector('.btn-secondary');
-                    btn_secondary.classList.toggle('hover');
-                }
-            });
+            let pets_items = document.querySelector('.pets_slider');
 
             pets_items.addEventListener('click', (e) => {
                 if (e.target != pets_items) {
                     let current_pets_item = e.target.closest('.pets_item');
-
-                    generateModalPets(current_pets_item);
-                    blackout.classList.toggle('active');
-                    modal_pets.classList.toggle('active');
+                    if (current_pets_item) {
+                        generateModalPets(pets_json, current_pets_item);
+                        blackout.classList.toggle('active');
+                        modal_pets.classList.toggle('active');
+                    }
                 }
             });
         });

@@ -237,6 +237,7 @@ body {
             justify-content: space-between;
         }
         .logo_wrap {
+            cursor: pointer;
             .logo_title {
                 @include logo_title;
                 margin: 0;
@@ -267,6 +268,9 @@ body {
                         text-decoration: none;
                         &:hover {
                             color: $color-light-s;
+                        }
+                        &.inactive:hover {
+                            color: $color-dark-s;
                         }
                         &.active {
                             border-bottom: 0.3rem solid #f1cdb3;
@@ -525,13 +529,12 @@ body {
             }
             .footer_location {
                 h3 {
-                    margin-bottom: 3.3rem;
                     max-width: 27rem;
+                    margin-bottom: 3.3rem;
                 }
                 .address {
                     @include footer_icons;
                     margin-bottom: 3.3rem;
-                    max-width: 30rem;
                 }
             }
             > img {
@@ -566,6 +569,9 @@ body {
                             color: $color-dark-l;
                             &:hover {
                                 color: $color-dark-3xl;
+                            }
+                            &.inactive:hover {
+                                color: $color-dark-l;
                             }
                         }
                     }
@@ -764,9 +770,11 @@ body {
                 .pets_carousel {
                     .pets_items {
                         column-gap: 4rem;
-                        // .pets_item:nth-last-child(-n + 1) {
-                        //     display: none;
-                        // }
+                    }
+                    &.pets_main {
+                        .pets_item:nth-last-child(-n + 1) {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -781,9 +789,6 @@ body {
                     margin-top: 0.5rem;
                     .pets_items {
                         margin-top: 2.5rem;
-                        // .pets_item:nth-last-child(-n + 2) {
-                        //     display: none;
-                        // }
                     }
                 }
                 .pets_navigation {
@@ -993,22 +998,24 @@ body {
                     padding: 0 1.5rem;
                     .pets_items {
                         margin-top: 0rem;
-                        // .pets_item:nth-last-child(-n + 2) {
-                        //     display: none;
-                        // }
                     }
-                }
-                .control_buttons {
-                    top: -1.5rem;
-                    .slider_button {
-                        left: 5.8rem;
-                        &.reversed {
-                            left: 19rem;
+                    &.pets_main {
+                        .pets_item:nth-last-child(-n + 2) {
+                            display: none;
                         }
                     }
                 }
+                .control_buttons {
+                    display: flex;
+                    top: -1.5rem;
+                    justify-content: space-around;
+                    padding: 0 1.8rem;
+                    .slider_button {
+                        position: relative;
+                    }
+                }
                 .pets_button_wrapper {
-                    margin-top: 7.9rem;
+                    margin-top: 2.7rem;
                 }
             }
         }
@@ -1022,9 +1029,6 @@ body {
                     margin-top: 4.2rem;
                     .pets_items {
                         margin-top: 0rem;
-                        // .pets_item:nth-last-child(-n + 5) {
-                        //     display: none;
-                        // }
                     }
                 }
                 .pets_navigation {
@@ -1110,17 +1114,17 @@ body {
                     }
                     .phone {
                         justify-content: center;
-                        margin-bottom: 4rem;
+                        margin-bottom: 1rem;
                     }
                 }
                 .footer_location {
                     h3 {
                         @include h3-mobile;
                         text-align: center;
-                        margin-top: 4rem;
-                        max-width: 29rem;
-                        margin: 0 auto;
+                        max-width: 29.4rem;
                         margin-bottom: 4rem;
+                        margin-left: 3rem;
+                        margin-right: 3rem;
                     }
                     .address {
                         margin-bottom: 4rem;
