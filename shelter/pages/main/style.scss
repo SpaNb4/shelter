@@ -139,11 +139,13 @@ $color-dark-3xl: #292929;
 }
 
 @mixin start-screen-gradient-background {
-    background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+    background: url(../../assets/images/noise_transparent@2x.png),
+        radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 @mixin footer-gradient-background {
-    background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
+    background: url(../../assets/images/noise_transparent@2x.png),
+        radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
 
 @mixin slider_button {
@@ -640,9 +642,8 @@ body {
     transform: translate(-50%, -50%) scale(0);
     transition: 200ms ease-in-out;
     z-index: 1;
-    border-radius: 0.9rem 0rem 0rem 0.9rem;
+    border-radius: 0.9rem;
     background-color: $color-light-s;
-    max-width: 80%;
     width: 90rem;
     .wrapper {
         padding: 0;
@@ -813,6 +814,7 @@ body {
             }
         }
     }
+
     .donation {
         .wrapper {
             flex-direction: column-reverse;
@@ -822,6 +824,7 @@ body {
             }
         }
     }
+
     .footer {
         .wrapper {
             .footer_content {
@@ -836,6 +839,33 @@ body {
                 }
                 .address:last-child {
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .modal_pets {
+        width: 63rem;
+        img {
+            width: 35rem;
+        }
+        .modal_pets_content {
+            max-width: 26rem;
+            margin-left: 1.1rem;
+            h3 {
+                margin-top: 1rem;
+            }
+            h4 {
+                margin-bottom: 2rem;
+            }
+            p {
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+                letter-spacing: 0.07rem;
+            }
+            ul {
+                li {
+                    margin-bottom: 0.6rem;
                 }
             }
         }
@@ -1137,6 +1167,40 @@ body {
                     width: 26rem;
                     height: 26.9rem;
                     margin-top: 4rem;
+                }
+            }
+        }
+    }
+
+    .modal_pets {
+        width: 24rem;
+        .wrapper {
+            padding: 1rem;
+            padding-top: 0;
+            img {
+                display: none;
+            }
+            .modal_pets_content {
+                max-width: 22rem;
+                margin:0;
+                h3 {
+                    text-align: center;
+                    margin-top: 1rem;
+                }
+                h4 {
+                    text-align: center;
+                    margin-bottom: 2rem;
+                }
+                p {
+                    font-size: 1.3rem;
+                    text-align: justify;
+                    margin-bottom: 2.4rem;
+                    letter-spacing: 0.07rem;
+                }
+                ul {
+                    li {
+                        margin-bottom: 0.6rem;
+                    }
                 }
             }
         }

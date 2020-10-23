@@ -48,18 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
     modal_close.addEventListener('click', () => {
         blackout.classList.toggle('active');
         modal_pets.classList.toggle('active');
+        document.body.style.overflow = 'initial';
     });
 
     blackout.addEventListener('click', () => {
         modal_pets.classList.remove('active');
-        menu_popup.classList.toggle('active');
-        logo.classList.toggle('hidden');
-        menu_trigger.classList.toggle('menu_close');
-        menu_close.classList.toggle('menu_close');
-        blackout.classList.toggle('active');
+        menu_popup.classList.remove('active');
+        logo.classList.remove('hidden');
+        menu_trigger.classList.remove('menu_close');
+        menu_close.classList.remove('menu_close');
+        blackout.classList.remove('active');
+        document.body.style.overflow = 'initial';
     });
 
-    blackout.addEventListener('mouseover', () => {
+    blackout.addEventListener('mouseover', (e) => {
         modal_close.classList.add('hover');
     });
 
@@ -99,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let pets_button = document.createElement('a');
                 pets_button.classList.add('btn-secondary');
                 pets_button.innerHTML = 'Learn more';
-                pets_button.href = '#';
+                pets_button.href = 'javascript:void(0)';
 
                 pets_item_div.appendChild(pets_item_img);
                 pets_item_div.appendChild(pets_names_div);
@@ -290,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 nav: false,
                 loop: false,
                 startIndex: 3,
+                touch: false,
                 controls: false,
                 preventActionWhenRunning: true,
             });
@@ -352,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     let pets_button = document.createElement('a');
                     pets_button.classList.add('btn-secondary');
                     pets_button.innerHTML = 'Learn more';
-                    pets_button.href = '#';
+                    pets_button.href = 'javascript:void(0)';
 
                     pets_item_div.appendChild(pets_item_img);
                     pets_item_div.appendChild(pets_names_div);
@@ -379,9 +382,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 let index = pets_slider.getInfo().index;
                 if (index == 15) {
-                    pets_slider.goTo(randomInteger(3,7));
+                    pets_slider.goTo(randomInteger(3, 7));
                 } else if (index == 0) {
-                    pets_slider.goTo(randomInteger(3,7));
+                    pets_slider.goTo(randomInteger(3, 7));
                 }
             });
         }
@@ -427,11 +430,11 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then((pets_json) => {
             function resizePetItem() {
-                if (window.screen.width <= 629) {
+                if (window.screen.width < 768) {
                     let size = 3;
                     deletePetItem();
                     generatePetItem(pets_json, size);
-                } else if (window.screen.width <= 1200) {
+                } else if (window.screen.width < 1280) {
                     let size = 6;
                     deletePetItem();
                     generatePetItem(pets_json, size);
@@ -449,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         generateModalPets(pets_json, current_pets_item);
                         blackout.classList.toggle('active');
                         modal_pets.classList.toggle('active');
+                        document.body.style.overflow = 'hidden';
                     }
                 }
             });
