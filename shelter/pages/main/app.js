@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     // кнопка открытия меню
     let menu_trigger = document.querySelector('#menu_trigger');
     // меню
@@ -58,10 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modal_close.classList.remove('hover');
     });
 
-    let json;
-    let pets_pagination;
-    let pets_slider;
-
     function shuffle(array) {
         let arr = array.slice();
         for (let i = arr.length - 1; i > 0; i--) {
@@ -89,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 let pets_names_div = document.createElement('div');
                 pets_names_div.classList.add('pets_names');
-                pets_names_div.innerHTML = `${pet.name}`;
+                pets_names_div.innerHTML = pet.name;
 
                 let pets_button = document.createElement('a');
                 pets_button.classList.add('btn-secondary');
@@ -100,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pets_item_div.appendChild(pets_names_div);
                 pets_item_div.appendChild(pets_button);
                 pets_items_div.appendChild(pets_item_div);
-            })
+            });
             let slider_item_div = document.createElement('div');
             slider_item_div.classList.add('slider_item');
             slider_item_div.appendChild(pets_items_div);
@@ -115,28 +111,90 @@ document.addEventListener("DOMContentLoaded", () => {
         tns_outer.remove();
     }
 
-    function randomPet() {
+    function randomPet(pets_json, size) {
         deletePetItem();
-        generatePetItem(json);
+        generatePetItem(pets_json, size);
     }
 
-    let random_button = document.querySelectorAll('.random_button');
-    random_button.forEach(el => {
-        el.addEventListener('click', randomPet);
-    })
-
-    let arr_length = 0;
-    function generatePetItem(pets_json) {
+    function generatePetItem(pets_json, size) {
+        let pets_obj_arr = [];
+        let arr_length = 0;
         let pets_obj = pets_json;
         let pets_pagination_div = document.querySelector('.pets_pagination');
         // пагинация
         if (pets_pagination_div) {
+            let pets = pets_json;
 
-            let pets_obj_arr = [];
-            arr_length = 48 / pets_obj.length;
-            for (let i = 0; i < arr_length; i++) {
-                pets_obj_arr[i] = shuffle(pets_obj);
-                pets_obj_arr[i] = pets_obj_arr[i];
+            fullPetsList = (() => {
+                let tempArr = [];
+
+                for (let i = 0; i < 6; i++) {
+                    const newPets = pets;
+
+                    for (let j = pets.length; j > 0; j--) {
+                        let randInd = Math.floor(Math.random() * j);
+                        const randElem = newPets.splice(randInd, 1)[0];
+                        newPets.push(randElem);
+                    }
+
+                    tempArr = [...tempArr, ...newPets];
+                }
+                return tempArr;
+            })();
+
+            const sort6recursively = (list) => {
+                const length = list.length;
+
+                for (let i = 0; i < length / 6; i++) {
+                    const stepList = list.slice(i * 6, i * 6 + 6);
+                    for (let j = 0; j < 6; j++) {
+                        const duplicatedItem = stepList.find((item, ind) => {
+                            return item.name === stepList[j].name && ind !== j;
+                        });
+                        if (duplicatedItem !== undefined) {
+                            const ind = i * 6 + j;
+                            const which8OfList = Math.trunc(ind / 8);
+
+                            list.splice(which8OfList * 8, 0, list.splice(ind, 1)[0]);
+
+                            sort6recursively(list);
+                        }
+                    }
+                }
+
+                return list;
+            };
+            const sort863 = (list) => {
+                let unique8List = [];
+                let length = list.length;
+                for (let i = 0; i < length / 8; i++) {
+                    const uniqueStepList = [];
+                    for (j = 0; j < list.length; j++) {
+                        if (uniqueStepList.length >= 8) {
+                            break;
+                        }
+                        const isUnique = !uniqueStepList.some((item) => {
+                            return item.name === list[j].name;
+                        });
+                        if (isUnique) {
+                            uniqueStepList.push(list[j]);
+                            list.splice(j, 1);
+                            j--;
+                        }
+                    }
+                    unique8List = [...unique8List, ...uniqueStepList];
+                }
+                list = unique8List;
+
+                list = sort6recursively(list);
+
+                return list;
+            };
+
+            fullPetsList = sort863(fullPetsList);
+
+            for (let i = 0; i < Math.ceil(fullPetsList.length / size); i++) {
+                pets_obj_arr[i] = fullPetsList.slice(i * size, i * size + size);
             }
 
             generatePetDOM(pets_obj_arr);
@@ -145,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let prev_button = document.querySelector('.prev_button');
             let first_button = document.querySelector('.first_button');
             let last_button = document.querySelector('.last_button');
-            let page = document.querySelector('.slider_button.active')
+            let page = document.querySelector('.slider_button.active');
 
             next_button.onclick = function () {
                 pets_pagination.goTo('next');
@@ -163,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pets_pagination.goTo('last');
             };
 
-            pets_pagination = tns({
+            let pets_pagination = tns({
                 container: '.pets_slider',
                 nav: false,
                 controls: false,
@@ -196,15 +254,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //слайдер на главной странице
         else {
-            let pets_obj_arr = [];
-
             for (let i = 0; i < 2; i++) {
                 pets_obj_arr[i] = shuffle(pets_obj);
                 pets_obj_arr[i] = pets_obj_arr[i].slice(5);
             }
+
             generatePetDOM(pets_obj_arr);
 
-            pets_slider = tns({
+            let pets_slider = tns({
                 container: '.pets_slider',
                 nav: false,
                 controls: false,
@@ -216,42 +273,94 @@ document.addEventListener("DOMContentLoaded", () => {
             let prev_button = document.querySelector('.prev_button');
 
             next_button.onclick = function () {
+                randomPet(pets_obj);
                 pets_slider.goTo('prev');
             };
 
             prev_button.onclick = function () {
+                randomPet(pets_obj);
                 pets_slider.goTo('prev');
             };
-
-
-
         }
     }
 
-    fetch('../../assets/json/pets.json')
-        .then(response => response.json())
-        .then(pets_json => {
-            json = pets_json;
-            generatePetItem(pets_json);
-        })
-        .then(() => {
-            // массив с животными по клику на который
-            // открывается модальное окно
-            let pets_items = document.querySelectorAll('.pets_item');
+    function generateModalPets(current_pets_item) {
+        for (let i = 0; i < pets_obj_arr[0].length; i++) {
+            if (pets_obj_arr[0][i].name == current_pets_item.querySelector('.pets_names').textContent) pets_item = pets_obj_arr[0][i];
+        }
+        let modal_pets_img = document.querySelector('.modal_pets img');
+        modal_pets_img.src = pets_item.img;
 
-            pets_items.forEach(pets_item => {
-                pets_item.addEventListener('click', () => {
+        let modal_pets_h3 = document.querySelector('.modal_pets_content h3');
+        modal_pets_h3.innerHTML = pets_item.name;
+
+        let modal_pets_h4 = document.querySelector('.modal_pets_content h4');
+        modal_pets_h4.innerHTML = `${pets_item.type} - ${pets_item.breed}`;
+
+        let modal_pets_description = document.querySelector('.modal_pets_content p');
+        modal_pets_description.innerHTML = pets_item.description;
+
+        let modal_pets_age = document.querySelector('.modal_pets_content ul li:nth-child(1)');
+        modal_pets_age.innerHTML = `<span>Age: </span> ${pets_item.age}`;
+
+        let modal_pets_inoculations = document.querySelector('.modal_pets_content ul li:nth-child(2)');
+        modal_pets_inoculations.innerHTML = `<span>Inoculations: </span> ${pets_item.inoculations}`;
+
+        let modal_pets_diseases = document.querySelector('.modal_pets_content ul li:nth-child(3)');
+        modal_pets_diseases.innerHTML = `<span>Diseases: </span> ${pets_item.diseases}`;
+
+        let modal_pets_parasites = document.querySelector('.modal_pets_content ul li:nth-child(4)');
+        modal_pets_parasites.innerHTML = `<span>Parasites: </span> ${pets_item.parasites}`;
+    }
+
+    fetch('../../assets/json/pets.json')
+        .then((response) => response.json())
+        .then((pets_json) => {
+            let size = 8;
+            generatePetItem(pets_json, size);
+            return pets_json;
+        })
+        .then((pets_json) => {
+            function resizePetItem() {
+                if (window.screen.width <= 629) {
+                    let size = 3;
+                    deletePetItem();
+                    generatePetItem(pets_json, size);
+                }
+                else if (window.screen.width <= 1200) {
+                    let size = 6;
+                    deletePetItem();
+                    generatePetItem(pets_json, size);
+                }
+            }
+            resizePetItem();
+
+            let pets_items = document.querySelector('.pets_items');
+
+            pets_items.addEventListener('mouseout', (e) => {
+                if (e.target != pets_items) {
+                    let current_pets_item = e.target.closest('.pets_item');
+                    let btn_secondary = current_pets_item.querySelector('.btn-secondary');
+                    btn_secondary.classList.toggle('hover');
+                }
+            });
+
+            pets_items.addEventListener('mouseover', (e) => {
+                if (e.target != pets_items) {
+                    let current_pets_item = e.target.closest('.pets_item');
+                    let btn_secondary = current_pets_item.querySelector('.btn-secondary');
+                    btn_secondary.classList.toggle('hover');
+                }
+            });
+
+            pets_items.addEventListener('click', (e) => {
+                if (e.target != pets_items) {
+                    let current_pets_item = e.target.closest('.pets_item');
+
+                    generateModalPets(current_pets_item);
                     blackout.classList.toggle('active');
                     modal_pets.classList.toggle('active');
-                });
-                pets_item.addEventListener('mouseover', () => {
-                    let btn_secondary = document.querySelector('.btn-secondary');
-                    btn_secondary.classList.toggle('hover');
-                });
-                pets_item.addEventListener('mouseout', () => {
-                    let btn_secondary = document.querySelector('.btn-secondary');
-                    btn_secondary.classList.toggle('hover');
-                });
+                }
             });
         });
 });

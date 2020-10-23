@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+
     ul {
         margin-block-start: 0;
         margin-block-end: 0;
@@ -138,13 +139,11 @@ $color-dark-3xl: #292929;
 }
 
 @mixin start-screen-gradient-background {
-    background: url(../../assets/images/noise_transparent@2x.png),
-        radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
+    background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(100% 215.42% at 0% 0%, #5b483a 0%, #262425 100%), #211f20;
 }
 
 @mixin footer-gradient-background {
-    background: url(../../assets/images/noise_transparent@2x.png),
-        radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
+    background: url(../../assets/images/noise_transparent@2x.png), radial-gradient(110.67% 538.64% at 5.73% 50%, #513d2f 0%, #1a1a1c 100%), #211f20;
 }
 
 @mixin slider_button {
@@ -210,12 +209,12 @@ $color-dark-3xl: #292929;
         font-family: $fname;
         font-style: $fstyle;
         font-weight: $fweight;
-        src: local($fname), url($furl) format("woff");
+        src: local($fname), url($furl) format('woff');
     }
 }
 
-@include font("Georgia", normal, 400, "../../assets/fonts/Georgia.woff");
-@include font("Arial", normal, 400, "../../assets/fonts/Arial.woff");
+@include font('Georgia', normal, 400, '../../assets/fonts/Georgia.woff');
+@include font('Arial', normal, 400, '../../assets/fonts/Arial.woff');
 
 body {
     @include paragraph-l;
@@ -677,7 +676,7 @@ body {
                     letter-spacing: 0.15rem;
                 }
                 &::before {
-                    content: "\2022";
+                    content: '\2022';
                     color: $color-primary-color;
                     font-weight: bold;
                     display: inline-block;
@@ -765,9 +764,9 @@ body {
                 .pets_carousel {
                     .pets_items {
                         column-gap: 4rem;
-                        .pets_item:nth-last-child(-n + 1) {
-                            display: none;
-                        }
+                        // .pets_item:nth-last-child(-n + 1) {
+                        //     display: none;
+                        // }
                     }
                 }
             }
@@ -782,9 +781,9 @@ body {
                     margin-top: 0.5rem;
                     .pets_items {
                         margin-top: 2.5rem;
-                        .pets_item:nth-last-child(-n + 2) {
-                            display: none;
-                        }
+                        // .pets_item:nth-last-child(-n + 2) {
+                        //     display: none;
+                        // }
                     }
                 }
                 .pets_navigation {
@@ -994,9 +993,9 @@ body {
                     padding: 0 1.5rem;
                     .pets_items {
                         margin-top: 0rem;
-                        .pets_item:nth-last-child(-n + 2) {
-                            display: none;
-                        }
+                        // .pets_item:nth-last-child(-n + 2) {
+                        //     display: none;
+                        // }
                     }
                 }
                 .control_buttons {
@@ -1023,9 +1022,9 @@ body {
                     margin-top: 4.2rem;
                     .pets_items {
                         margin-top: 0rem;
-                        .pets_item:nth-last-child(-n + 5) {
-                            display: none;
-                        }
+                        // .pets_item:nth-last-child(-n + 5) {
+                        //     display: none;
+                        // }
                     }
                 }
                 .pets_navigation {
