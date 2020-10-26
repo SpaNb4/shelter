@@ -258,26 +258,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            let pets_items = document.querySelector('.pets_slider');
-            pets_items.addEventListener('mouseout', (e) => {
-                if (e.target != pets_items) {
-                    let current_pets_item = e.target.closest('.pets_item');
-                    if (current_pets_item) {
-                        let btn_secondary = current_pets_item.querySelector('.btn-secondary');
-                        btn_secondary.classList.toggle('hover');
-                    }
-                }
-            });
+            // let pets_items = document.querySelector('.pets_slider');
+            // pets_items.addEventListener('mouseout', (e) => {
+            //     if (e.target != pets_items) {
+            //         let current_pets_item = e.target.closest('.pets_item');
+            //         if (current_pets_item) {
+            //             let btn_secondary = current_pets_item.querySelector('.btn-secondary');
+            //             btn_secondary.classList.toggle('hover');
+            //         }
+            //     }
+            // });
 
-            pets_items.addEventListener('mouseover', (e) => {
-                if (e.target != pets_items) {
-                    let current_pets_item = e.target.closest('.pets_item');
-                    if (current_pets_item) {
-                        let btn_secondary = current_pets_item.querySelector('.btn-secondary');
-                        btn_secondary.classList.toggle('hover');
-                    }
-                }
-            });
+            // pets_items.addEventListener('mouseover', (e) => {
+            //     if (e.target != pets_items) {
+            //         let current_pets_item = e.target.closest('.pets_item');
+            //         if (current_pets_item) {
+            //             let btn_secondary = current_pets_item.querySelector('.btn-secondary');
+            //             btn_secondary.classList.toggle('hover');
+            //         }
+            //     }
+            // });
         }
 
         //слайдер на главной странице
